@@ -1,0 +1,5 @@
+The project idea sounds reasonable and realistic. It is advised to rather go for a qualitative evaluation (manually evaluate the results for some carefully picked queries) than to rely on a dataset with very different characterstics like the games dataset.
+
+From the proposal, it seems a lot of planning has not yet gone into it. For instance, resource materials are not well-specified and the evaluation plan is vague. The links provided in the proposal do not work, making it difficult to evaluate the proposed datasets and resources.
+
+Have a look at information retrieval tools like Lucene for the search and indexing, rather than relying on pandas or numpy as this will likely lead to less preformant brute-force approaches.
