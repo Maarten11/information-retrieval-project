@@ -4,17 +4,18 @@ from java.io import File
 import lucene
 from pyarrow import Table, parquet as pq
 import pandas as pd
-import os
+import shutil
 
 
 def index_data(path: str) -> None:
     """
     Generates an index for the provided data
+    Note: the data should be stored in a parquet file
 
     :param path: string to the parquet file
     """
 
-    os.rmdir("./store")
+    shutil.rmtree("./store")
 
     assert lucene.getVMEnv() or lucene.initVM()
 
