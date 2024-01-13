@@ -2,10 +2,10 @@ FROM coady/pylucene
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
+COPY ./requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# COPY . .
 
 # CMD [ "python", "./main.py" ]
 CMD [ "python", "./app.py" ]

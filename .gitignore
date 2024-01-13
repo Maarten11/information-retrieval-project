@@ -8,4 +8,6 @@ report.*
 !report.tex
 !report.pdf
 data/*
+src/data/*
+src/store/*
 pylucene*/
