@@ -24,7 +24,7 @@ if __name__ == "__main__":
     hits = indexer.search('text:hello')
     print(len(hits), hits.count)
     (hit,) = hits
-    print(hit['recipe_name'])
+    print(hit['name'])
     print(hit.id, hit.score)
     print(hit.dict())
 
