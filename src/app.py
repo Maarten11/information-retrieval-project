@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     from lupyne import engine
 
-    indexer = engine.Indexer('temp')
+    indexer = engine.Indexer('./index')
 
     # indexer.set('recipe_name', stored=True)
     # indexer.set('ingredients', engine.Field.Text)
