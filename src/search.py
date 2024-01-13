@@ -1,23 +1,46 @@
-from org.apache.lucene.queryparser.classic import QueryParser
-from org.apache.lucene.search import IndexSearcher
-from org.apache.lucene.store import SimpleFSDirectory
-from java.nio.file import Paths
+import lucene
+from java.io import File
+from org.apache.lucene import analysis, index, queryparser, search, store
 
 
-def search_index(index_path, query_str):
-    directory = SimpleFSDirectory(Paths.get(index_path))
-    searcher = IndexSearcher(directory)
-    analyzer = StandardAnalyzer()
+def get_index_dir():
+    assert lucene.getVMEnv() or lucene.initVM()
 
-    query_parser = QueryParser("content", analyzer)
-    query = query_parser.parse(query_str)
-
-    hits = searcher.search(query, 10)
-
-    for hit in hits.scoreDocs:
-        doc = searcher.doc(hit.doc)
-        print("Document ID:", doc.get("id"), "Score:", hit.score)
+    return store.FSDirectory.open(File("./store").toPath())
 
 
-# Example usage:
-search_index("index_directory", "document")
+def get_searcher(index_dir):
+    assert lucene.getVMEnv() or lucene.initVM()
+
+    reader = index.DirectoryReader.open(index_dir)
+    searcher = search.IndexSearcher(reader)
+    return searcher
+
+
+def get_analyzer():
+    assert lucene.getVMEnv() or lucene.initVM()
+
+    return analysis.en.EnglishAnalyzer()
+
+
+def query_ingredients(
+    searcher, include: list[str], exclude: list[str] = [], limit: int = 10
+):
+    assert lucene.getVMEnv() or lucene.initVM()
+
+    parser = queryparser.classic.QueryParser(
+        "RecipeIngredientParts", get_analyzer())
+
+    include_handled = [x if len(x.split(" ")) ==
+                       1 else f'"{x}"' for x in include]
+    include_str = " OR ".join(include_handled)
+    exclude_handled = [x if len(x.split(" ")) ==
+                       1 else f'"{x}"' for x in exclude]
+    query_str = f"({include_str})"
+    for excluded in exclude_handled:
+        query_str += f" AND NOT {excluded}"
+
+    print(query_str)
+    query = parser.parse(query_str)
+    hits = searcher.search(query, limit).scoreDocs
+    return hits
