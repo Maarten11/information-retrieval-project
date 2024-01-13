@@ -4,9 +4,18 @@ from java.io import File
 import lucene
 from pyarrow import Table, parquet as pq
 import pandas as pd
+import os
 
 
 def index_data(path: str) -> None:
+    """
+    Generates an index for the provided data
+
+    :param path: string to the parquet file
+    """
+
+    os.rmdir("./store")
+
     assert lucene.getVMEnv() or lucene.initVM()
 
     # Define the columns you would like to use
@@ -23,16 +32,11 @@ def index_data(path: str) -> None:
     config = index.IndexWriterConfig(analyzer)
     iwriter = index.IndexWriter(directory, config)
 
-    table: Table = pq.read_table(
-        "./data/recipes.parquet",
-        columns=list(COLUMNS.keys()),
-    )
+    table: Table = pq.read_table(path, columns=list(COLUMNS.keys()))
 
     pd_table: pd.DataFrame = table.to_pandas()
-    print(pd_table.head(10))
-    print(pd_table.dtypes)
 
-    for row in pd_table.head(10).itertuples():
+    for row in pd_table.itertuples():
         # Convert to dict
         recipe: dict = row._asdict()
         doc = document.Document()
