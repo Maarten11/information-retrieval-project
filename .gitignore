@@ -3,3 +3,9 @@ __pycache__/
 venv/
 .venv/
 .vscode/
+# Ignore all extra latex build files
+report.*
+!report.tex
+!report.pdf
+data/*
+pylucene*/
