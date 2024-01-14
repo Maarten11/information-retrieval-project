@@ -8,5 +8,6 @@ def explain_hit(searcher, query, hit):
 def print_hit(searcher, hit, column):
     storedFields = searcher.storedFields()
     hitDoc = storedFields.document(hit.doc)
-    print(hitDoc.get("Name"), hitDoc.getValues(INGREDIENT_COLUMN))
+    ingredients = hitDoc.get(INGREDIENT_COLUMN).split("., ")
+    print(hitDoc.get("Name") + ":", ingredients)
     print(hit.score)
