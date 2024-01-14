@@ -34,21 +34,20 @@ def search_recipe():
         recipe = {}
         for field in hitDoc.getFields():
             name = field.name()
-            value = hitDoc.getValues(name)
-            # Extract real type
-            if index.COLUMNS[name] == list and name != "Images":
-                value = list(value)
-            else:
-                value = list(value)[0]
+            value = hitDoc.getValues(name)[0]
+            if index.COLUMNS[name] == list and name != 'Images':
+                value = value.split("., ")
             recipe[field.name()] = value
         results.append(recipe)
 
     return results
 
 
+FORCE_REINDEX = False
+
 if __name__ == "__main__":
     lucene.initVM()
-    if not index.has_index():
+    if not index.has_index() or FORCE_REINDEX:
         index.index_data("./data/recipes.parquet")
 
     app.run(host="0.0.0.0")

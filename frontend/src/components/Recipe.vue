@@ -18,7 +18,7 @@
 			class="aspect-square max-h-24 object-cover overflow-hidden"
 			:src="props.Images ?? imgUrl"
 			:alt="Name" />
-		<div class="grid grid-flow-row text-left">
+		<div class="grid grid-flow-row text-left py-2">
 			<h3 class="text-md">{{ props.Name }}</h3>
 			<!-- <ul>
 				<li

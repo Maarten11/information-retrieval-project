@@ -37,14 +37,14 @@
 		class="fixed m-auto top-0 left-0 h-full w-full p-20 backdrop-blur-md">
 		<div class="relative h-full">
 			<div
-				class="grid grid-flow-row shadow-lg bg-stone-800 h-full overflow-y-auto rounded-2xl">
+				class="grid grid-rows-[auto,1fr] shadow-lg bg-stone-800 h-full overflow-y-auto rounded-2xl">
 				<img
 					class="w-full h-[30vh] object-cover"
 					:src="selectedRecipe?.Images ?? imgUrl" />
 				<button class="absolute top-0 left-0" @click="select(undefined)">
 					x
 				</button>
-				<div class="grid p-10 grid-flow-row gap-5">
+				<div class="grid p-10 grid-rows-[auto,1fr] gap-10">
 					<h2 class="text-3xl">{{ selectedRecipe?.Name }}</h2>
 					<div class="grid grid-flow-col gap-5">
 						<aside>

@@ -1,5 +1,7 @@
 # Hele dataset verwerken
 from datetime import datetime
+
+from numpy import ndarray
 from org.apache.lucene import analysis, document, index, store
 from java.io import File
 import lucene
@@ -62,10 +64,18 @@ def index_data(path: str) -> None:
             if value is None:
                 # TODO: what to do with missing data?
                 continue
-            elif COLUMNS[key] == list:
-                for v in value:
+            elif key == "Images":
+                # NDarray might be empty
+                if bool(len(value)):
                     doc.add(document.Field(
-                        key, v, document.StringField.TYPE_STORED))
+                        key, list(value)[0], document.TextField.TYPE_STORED))
+            elif COLUMNS[key] == list:
+                # for v in value:
+                #     doc.add(document.Field(
+                #         key, v, document.StringField.TYPE_STORED))
+                new_value = "., ".join(value)
+                doc.add(document.Field(key, new_value,
+                        document.TextField.TYPE_STORED))
             elif COLUMNS[key] == int:
                 doc.add(document.IntPoint(key, int(value)))
                 doc.add(document.Field(
