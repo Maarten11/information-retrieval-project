@@ -5,12 +5,16 @@ from org.apache.lucene import analysis, index, queryparser, search, store
 
 def get_index_dir():
     assert lucene.getVMEnv() or lucene.initVM()
+    env = lucene.getVMEnv()
+    env.attachCurrentThread()
 
     return store.FSDirectory.open(File("./store").toPath())
 
 
 def get_searcher(index_dir):
     assert lucene.getVMEnv() or lucene.initVM()
+    env = lucene.getVMEnv()
+    env.attachCurrentThread()
 
     reader = index.DirectoryReader.open(index_dir)
     searcher = search.IndexSearcher(reader)
@@ -19,6 +23,8 @@ def get_searcher(index_dir):
 
 def get_analyzer():
     assert lucene.getVMEnv() or lucene.initVM()
+    env = lucene.getVMEnv()
+    env.attachCurrentThread()
 
     return analysis.en.EnglishAnalyzer()
 
@@ -27,6 +33,8 @@ def query_ingredients(
     searcher, include: list[str], exclude: list[str] = [], limit: int = 10
 ):
     assert lucene.getVMEnv() or lucene.initVM()
+    env = lucene.getVMEnv()
+    env.attachCurrentThread()
 
     parser = queryparser.classic.QueryParser(
         "RecipeIngredientParts", get_analyzer())

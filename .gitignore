@@ -6,7 +6,6 @@ venv/
 # Ignore all extra latex build files
 report.*
 !report.tex
-!report.pdf
 data/*
 src/data/*
 src/store/*

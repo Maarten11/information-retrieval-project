@@ -3,3 +3,5 @@ services:
     build: ./src
     volumes:
       - "./src:/usr/src/app"
+    ports:
+      - "8000:5000"
