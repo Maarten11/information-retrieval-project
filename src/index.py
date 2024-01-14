@@ -19,7 +19,7 @@ COLUMNS = {'RecipeId': int, 'Name': str,
 
 
 def has_index() -> bool:
-    return bool(len(os.listdir(INDEX_DIR)))
+    return os.path.isdir(INDEX_DIR) and bool(len(os.listdir(INDEX_DIR)))
 
 
 def index_data(path: str) -> None:
@@ -31,7 +31,8 @@ def index_data(path: str) -> None:
     """
 
     print("Writing new index", flush=True)
-    shutil.rmtree(INDEX_DIR)
+    if os.path.isdir(INDEX_DIR):
+        shutil.rmtree(INDEX_DIR)
 
     assert lucene.getVMEnv() or lucene.initVM()
     env = lucene.getVMEnv()
