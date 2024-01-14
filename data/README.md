@@ -1,6 +1,6 @@
 # Project Data
 
-Here follows some explenation around the used data and how to set it up for the project.
+Here follows some explanation around the used data and how to set it up for the project.
 
 ## Setup
 
