@@ -66,13 +66,15 @@ def index_data(file_path: str, index_path: str) -> None:
             if value is None:
                 # TODO: what to do with missing data?
                 continue
-            elif COLUMNS[key] == list:
-                # TODO: Look at storing differently.
-                #       This may improve the search results
-                # test = '  '.join(value)
-                for v in value:
+            elif key == "Images":
+                if len(value):
                     doc.add(document.Field(
-                        key, v, document.StringField.TYPE_STORED))
+                        key, list(value)[0], document.TextField.TYPE_STORED
+                    ))
+            elif COLUMNS[key] == list:
+                new_value = "., ".join(value)
+                doc.add(document.Field(
+                        key, new_value, document.TextField.TYPE_STORED))
                 # doc.add(document.Field(
                 #     key, test, document.TextField.TYPE_STORED))
             elif COLUMNS[key] == int:
