@@ -20,13 +20,24 @@ def hello_world():
 @app.route("/search_recipe", methods=["POST"])
 def search_recipe():
     data = request.form
+    name = data.get("Name", None)
+    if name is None:
+        return "Please provide a name", 400
+    return "Hello World"
+
+
+@app.route("/search_ingredients", methods=["POST"])
+def search_ingredients():
+    data = request.form
     print(data, flush=True)
 
     include = data.get("include", None)
     if include is None:
-        return {"message": "At least give one ingredient", "status": 400}
+        return "At least give one ingredient", 400
     include = json.loads(include)
+    print(include, type(include), flush=True)
     exclude = json.loads(data.get("exclude", "[]"))
+    print(exclude, type(exclude), flush=True)
     name = data.get("Name", None)
     duration = data.get("Duration", None)
     rating = data.get("Rating", None)

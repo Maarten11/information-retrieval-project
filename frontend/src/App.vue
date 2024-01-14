@@ -4,10 +4,28 @@
 	import imgUrl from "./assets/recipe_placeholder.jpg";
 
 	const recipes: Ref<IRecipe[] | null> = ref(null);
-	const search = async () => {
+
+	const searchRecipe = async () => {
+		const form = new FormData();
+		form.append("Name", name.value);
+		const request = await fetch("http://localhost:8000/search_recipe", {
+			body: form,
+			method: "POST",
+		});
+		// const response = await request.json();
+		const response = await request.text();
+		console.log(response);
+		// recipes.value = response;
+	};
+
+	// Search request
+	const searchIngredients = async () => {
 		const form = new FormData();
 		form.append("include", "[".concat(include.value, "]"));
-		const request = await fetch("http://localhost:8000/search_recipe", {
+		form.append("exclude", "[".concat(exclude.value, "]"));
+		form.append("duration", duration.value.toString());
+		form.append("rating", rating.value.toString());
+		const request = await fetch("http://localhost:8000/search_ingredients", {
 			body: form,
 			method: "POST",
 		});
@@ -26,7 +44,6 @@
 	const exclude = ref("");
 	const rating = ref(0);
 	const duration = ref(0);
-
 	// Visualize the duration
 	const durationPT = computed(() =>
 		new Date((duration?.value ?? 0) * 1000)
@@ -35,101 +52,129 @@
 			.replace(":", "H")
 			.concat("M")
 	);
+
+	const name = ref("");
 </script>
 
 <template>
-	<h1 class="text-3xl mb-10 text-center">Recipe Searcher</h1>
-	<div class="h-full w-full grid grid-cols-[20vw,auto] gap-10">
-		<aside>
-			<button
-				class="mx-auto block mb-5"
-				:disabled="!include.length"
-				@click="search">
-				Search
-			</button>
-			<div class="grid gap-5">
+	<div class="grid grid-rows-[auto,1fr] min-h-full w-full">
+		<h1 class="text-3xl mb-10 text-center">Recipe Searcher</h1>
+		<div class="h-full w-full grid grid-cols-[25vw,auto] gap-10">
+			<aside class="h-full border-r-[1px] pe-10 border-white">
+				<button
+					class="mx-auto inline-block mb-5"
+					:disabled="!name.length"
+					@click="searchRecipe">
+					Search by name
+				</button>
 				<div>
-					<label for="to-include">Ingredients</label>
-					<input type="text" id="to-include" v-model="include" />
+					<label class="text-sm pb-1 block" for="name">Name</label>
+					<input type="text" id="name" v-model="name" />
 				</div>
-				<div>
-					<label for="to-exclude">Ingredients to exclude</label>
-					<input type="text" id="to-exclude" v-model="exclude" />
-				</div>
-				<div>
-					<label for="rating">Minimum rating</label>
-					<div class="flex justify-between">
-						<input id="rating" min="0" max="5" type="range" v-model="rating" />
-						<span>{{ rating }}</span>
+				<hr class="my-5" />
+				<button
+					class="mx-auto inline-block mb-5"
+					:disabled="!include.length"
+					@click="searchIngredients">
+					Search by ingredients
+				</button>
+				<div class="grid gap-5">
+					<div>
+						<label class="text-sm pb-1 block" for="to-include"
+							>Ingredients</label
+						>
+						<input type="text" id="to-include" v-model="include" />
+					</div>
+					<div>
+						<label class="text-sm pb-1 block" for="to-exclude"
+							>Ingredients to exclude</label
+						>
+						<input type="text" id="to-exclude" v-model="exclude" />
+					</div>
+					<div>
+						<label class="text-sm pb-1 block" for="rating"
+							>Minimum rating</label
+						>
+						<div class="flex justify-between">
+							<input
+								id="rating"
+								min="0"
+								max="5"
+								type="range"
+								v-model="rating" />
+							<span>{{ rating }}</span>
+						</div>
+					</div>
+					<div>
+						<label class="text-sm pb-1 block" for="duration"
+							>Maximum duration</label
+						>
+						<div class="flex justify-between">
+							<input
+								id="duration"
+								type="range"
+								max="18000"
+								step="300"
+								v-model="duration" />
+							<span>{{ durationPT }}</span>
+						</div>
 					</div>
 				</div>
-				<div>
-					<label for="duration">Maximum duration</label>
-					<div class="flex justify-between">
-						<input
-							id="duration"
-							type="range"
-							max="18000"
-							step="300"
-							v-model="duration" />
-						<span>{{ durationPT }}</span>
-					</div>
+			</aside>
+			<main>
+				<div v-if="recipesChosen" class="grid gap-5">
+					<Recipe
+						class="hover:cursor-pointer"
+						@click="select(recipe)"
+						v-bind="recipe"
+						v-for="(recipe, index) in recipes"
+						:key="index" />
 				</div>
-			</div>
-		</aside>
-		<main>
-			<div v-if="recipesChosen" class="grid gap-5">
-				<Recipe
-					class="hover:cursor-pointer"
-					@click="select(recipe)"
-					v-bind="recipe"
-					v-for="(recipe, index) in recipes"
-					:key="index" />
-			</div>
-			<span
-				v-if="!recipesChosen"
-				class="text-2xl text-center my-16 block text-stone-500">
-				Search ingredients to get results
-			</span>
-			<div
-				v-show="!!selectedRecipe"
-				class="fixed m-auto top-0 left-0 h-full w-full p-20 backdrop-blur-md">
-				<div class="relative h-full">
-					<div
-						class="grid grid-rows-[auto,1fr] shadow-lg bg-stone-800 h-full overflow-y-auto rounded-2xl">
-						<img
-							class="w-full h-[30vh] object-cover"
-							:src="selectedRecipe?.Images ?? imgUrl" />
-						<button class="absolute top-0 left-0" @click="select(undefined)">
-							x
-						</button>
-						<div class="grid p-10 grid-rows-[auto,1fr] gap-10">
-							<h2 class="text-3xl">{{ selectedRecipe?.Name }}</h2>
-							<div class="grid grid-flow-col gap-5">
-								<aside>
-									<h4 class="text-xl">Ingredients:</h4>
-									<ul class="">
-										<li
-											v-for="ingredient in selectedRecipe?.RecipeIngredientParts"
-											:key="ingredient">
-											{{ ingredient }}
-										</li>
-									</ul>
-								</aside>
-								<section class="">
-									<h4 class="text-xl">Instructions:</h4>
-									<ol>
-										<li v-for="instr in selectedRecipe?.RecipeInstructions">
-											{{ instr }}
-										</li>
-									</ol>
-								</section>
+				<span
+					v-if="!recipesChosen"
+					class="text-2xl text-center my-16 block text-stone-500">
+					Search something to get results
+				</span>
+				<div
+					v-show="!!selectedRecipe"
+					class="fixed m-auto top-0 left-0 h-full w-full p-20 backdrop-blur-md">
+					<div class="relative h-full">
+						<div
+							class="grid grid-rows-[auto,1fr] shadow-lg bg-stone-800 h-full overflow-y-auto rounded-2xl">
+							<img
+								class="w-full h-[30vh] object-cover"
+								:src="selectedRecipe?.Images ?? imgUrl" />
+							<button class="absolute top-0 left-0" @click="select(undefined)">
+								x
+							</button>
+							<div class="grid p-10 grid-rows-[auto,1fr] gap-10">
+								<h2 class="text-3xl">{{ selectedRecipe?.Name }}</h2>
+								<div class="grid grid-flow-col gap-5">
+									<aside>
+										<h4 class="text-xl">Ingredients:</h4>
+										<ul class="">
+											<li
+												v-for="ingredient in selectedRecipe?.RecipeIngredientParts"
+												:key="ingredient">
+												{{ ingredient }}
+											</li>
+										</ul>
+									</aside>
+									<section class="">
+										<h4 class="text-xl">Instructions:</h4>
+										<ol>
+											<li v-for="instr in selectedRecipe?.RecipeInstructions">
+												{{ instr }}
+											</li>
+										</ol>
+									</section>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</main>
+			</main>
+		</div>
 	</div>
 </template>
 
