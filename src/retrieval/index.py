@@ -67,9 +67,14 @@ def index_data(file_path: str, index_path: str) -> None:
                 # TODO: what to do with missing data?
                 continue
             elif COLUMNS[key] == list:
+                # TODO: Look at storing differently.
+                #       This may improve the search results
+                # test = '  '.join(value)
                 for v in value:
                     doc.add(document.Field(
                         key, v, document.StringField.TYPE_STORED))
+                # doc.add(document.Field(
+                #     key, test, document.TextField.TYPE_STORED))
             elif COLUMNS[key] == int:
                 doc.add(document.IntPoint(key, int(value)))
                 doc.add(document.Field(
