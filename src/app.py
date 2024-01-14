@@ -1,8 +1,11 @@
-from flask import Flask, jsonify, request
-from flask_cors import CORS
 import lucene
-import index
-import search
+from flask import Flask, request
+from flask_cors import CORS
+
+from retrieval import index, search
+
+INDEX_DIR = "./store"
+
 
 app = Flask(__name__)
 CORS(app)
@@ -22,7 +25,7 @@ def search_recipe():
     if include is None:
         return {"message": "At least give one ingredient", "status": 400}
 
-    searcher = search.get_searcher(search.get_index_dir())
+    searcher, reader = search.get_searcher(INDEX_DIR)
 
     hits = search.query_ingredients(searcher, ["milk", "eggs"])
     storedFields = searcher.storedFields()
@@ -43,12 +46,13 @@ def search_recipe():
             recipe[field.name()] = value
         results.append(recipe)
 
+    reader.close()
     return results
 
 
 if __name__ == "__main__":
     lucene.initVM()
-    if not index.has_index():
-        index.index_data("./data/recipes.parquet")
+    if not index.has_index(INDEX_DIR):
+        index.index_data("./data/recipes.parquet", INDEX_DIR)
 
     app.run(host="0.0.0.0")
