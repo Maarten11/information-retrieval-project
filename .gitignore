@@ -6,7 +6,9 @@ venv/
 # Ignore all extra latex build files
 report.*
 !report.tex
-data/*
-src/data/*
 src/store/*
 pylucene*/
+
+*.zip
+*.csv
+*.parquet
