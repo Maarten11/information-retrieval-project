@@ -46,10 +46,34 @@ def create_ingredient_query(include: list[str], exclude: list[str]):
         x if len(x.split(" ")) == 1 else f'"{x}"' for x in exclude
     ]
 
-    query_str = include_str
-    if exclude:
-        query_str = '(' + query_str + ')'
+    query_str = '(' + include_str + ')'
     for excluded in exclude_handled:
         query_str += f" AND NOT {excluded}"
 
     return parser.parse(query_str)
+
+
+def query_recipe_name(searcher, name: str, limit: int = 10):
+    assert lucene.getVMEnv() or lucene.initVM()
+    env = lucene.getVMEnv()
+    env.attachCurrentThread()
+
+    parser = queryparser.complexPhrase.ComplexPhraseQueryParser(
+        "Name", get_analyzer())
+
+    # Allow fuzzy matching on the terms
+    splitted = name.split(" ")
+    for i in range(len(splitted)):
+        s = splitted[i]
+        distance = 2
+        if len(s) < 2:
+            distance = 0
+        elif len(s) < 4:
+            distance = 1
+        splitted[i] = f"{s}~{distance}"
+
+    query_str = f'"{" ".join(splitted)}"'
+    query = parser.parse(query_str)
+
+    hits = searcher.search(query, limit).scoreDocs
+    return hits
