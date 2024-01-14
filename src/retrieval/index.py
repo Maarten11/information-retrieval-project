@@ -1,30 +1,27 @@
 # Hele dataset verwerken
+import os
 from datetime import datetime
 
-from numpy import ndarray
-from org.apache.lucene import analysis, document, index, store
-from java.io import File
 import lucene
-from pyarrow import Table, parquet as pq
 import pandas as pd
-import shutil
-import os
+from org.apache.lucene import document, index
+from pyarrow import Table
+from pyarrow import parquet as pq
+from retrieval.util import get_analyzer, get_index_dir, INGREDIENT_COLUMN
 
 from util import pt_time_to_seconds
 
-INDEX_DIR = "./store"
-
 # Define the columns you would like to use
 COLUMNS = {'RecipeId': int, 'Name': str,
-           'RecipeIngredientParts': list, 'RecipeInstructions': list,
+           INGREDIENT_COLUMN: list, 'RecipeInstructions': list,
            "Images": list, "CookTime": datetime}
 
 
-def has_index() -> bool:
-    return bool(len(os.listdir(INDEX_DIR)))
+def has_index(path: str) -> bool:
+    return os.path.isdir(path) and bool(len(os.listdir(path)))
 
 
-def index_data(path: str) -> None:
+def index_data(file_path: str, index_path: str) -> None:
     """
     Generates an index for the provided data
     Note: the data should be stored in a parquet file
@@ -32,8 +29,13 @@ def index_data(path: str) -> None:
     :param path: string to the parquet file
     """
 
-    print("Writing new index", flush=True)
-    shutil.rmtree(INDEX_DIR)
+    print(
+        f"Writing data to index at '{index_path}' from '{file_path}'",
+        flush=True
+    )
+    # Don't remove the index so that we can add to it???
+    # if os.path.isdir(INDEX_DIR):
+    #     shutil.rmtree(INDEX_DIR)
 
     assert lucene.getVMEnv() or lucene.initVM()
     env = lucene.getVMEnv()
@@ -42,14 +44,14 @@ def index_data(path: str) -> None:
     # NOTE: Use the english analyzer to enable stemming.
     #       This can be usefull for searching the ingredients.
     #       'apples' and 'apple' will both match to 'apple'.
-    analyzer = analysis.en.EnglishAnalyzer()
+    analyzer = get_analyzer()
 
     # Directory to store the index
-    directory = store.FSDirectory.open(File(INDEX_DIR).toPath())
+    directory = get_index_dir(index_path)
     config = index.IndexWriterConfig(analyzer)
     iwriter = index.IndexWriter(directory, config)
 
-    table: Table = pq.read_table(path, columns=list(COLUMNS.keys()))
+    table: Table = pq.read_table(file_path, columns=list(COLUMNS.keys()))
 
     pd_table: pd.DataFrame = table.to_pandas()
 
@@ -64,18 +66,15 @@ def index_data(path: str) -> None:
             if value is None:
                 # TODO: what to do with missing data?
                 continue
-            elif key == "Images":
-                # NDarray might be empty
-                if bool(len(value)):
-                    doc.add(document.Field(
-                        key, list(value)[0], document.TextField.TYPE_STORED))
             elif COLUMNS[key] == list:
-                # for v in value:
-                #     doc.add(document.Field(
-                #         key, v, document.StringField.TYPE_STORED))
-                new_value = "., ".join(value)
-                doc.add(document.Field(key, new_value,
-                        document.TextField.TYPE_STORED))
+                # TODO: Look at storing differently.
+                #       This may improve the search results
+                # test = '  '.join(value)
+                for v in value:
+                    doc.add(document.Field(
+                        key, v, document.StringField.TYPE_STORED))
+                # doc.add(document.Field(
+                #     key, test, document.TextField.TYPE_STORED))
             elif COLUMNS[key] == int:
                 doc.add(document.IntPoint(key, int(value)))
                 doc.add(document.Field(
@@ -90,5 +89,6 @@ def index_data(path: str) -> None:
                     key, value, document.TextField.TYPE_STORED))
         iwriter.addDocument(doc)
 
-    print("New index written", flush=True)
+    print(f"'{file_path}' added to index", flush=True)
     iwriter.close()
+    directory.close()
