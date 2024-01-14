@@ -12,17 +12,19 @@
 			body: form,
 			method: "POST",
 		});
-		// const response = await request.json();
-		const response = await request.text();
-		console.log(response);
-		// recipes.value = response;
+		const response = await request.json();
+		recipes.value = response;
 	};
 
 	// Search request
 	const searchIngredients = async () => {
+		const includeList = include.value.split(",").map((s) => s.trim());
+		const excludeList = !!exclude.value.length
+			? exclude.value.split(",").map((s) => s.trim())
+			: [];
 		const form = new FormData();
-		form.append("include", "[".concat(include.value, "]"));
-		form.append("exclude", "[".concat(exclude.value, "]"));
+		form.append("include", JSON.stringify(includeList));
+		form.append("exclude", JSON.stringify(excludeList));
 		form.append("duration", duration.value.toString());
 		form.append("rating", rating.value.toString());
 		const request = await fetch("http://localhost:8000/search_ingredients", {
@@ -61,62 +63,64 @@
 		<h1 class="text-3xl mb-10 text-center">Recipe Searcher</h1>
 		<div class="h-full w-full grid grid-cols-[25vw,auto] gap-10">
 			<aside class="h-full border-r-[1px] pe-10 border-white">
-				<button
-					class="mx-auto inline-block mb-5"
-					:disabled="!name.length"
-					@click="searchRecipe">
-					Search by name
-				</button>
-				<div>
-					<label class="text-sm pb-1 block" for="name">Name</label>
-					<input type="text" id="name" v-model="name" />
-				</div>
-				<hr class="my-5" />
-				<button
-					class="mx-auto inline-block mb-5"
-					:disabled="!include.length"
-					@click="searchIngredients">
-					Search by ingredients
-				</button>
-				<div class="grid gap-5">
+				<div class="sticky top-5 left-0">
+					<button
+						class="mx-auto inline-block mb-5"
+						:disabled="!name.length"
+						@click="searchRecipe">
+						Search by name
+					</button>
 					<div>
-						<label class="text-sm pb-1 block" for="to-include"
-							>Ingredients</label
-						>
-						<input type="text" id="to-include" v-model="include" />
+						<label class="text-sm pb-1 block" for="name">Name</label>
+						<input type="text" id="name" v-model="name" />
 					</div>
-					<div>
-						<label class="text-sm pb-1 block" for="to-exclude"
-							>Ingredients to exclude</label
-						>
-						<input type="text" id="to-exclude" v-model="exclude" />
-					</div>
-					<div>
-						<label class="text-sm pb-1 block" for="rating"
-							>Minimum rating</label
-						>
-						<div class="flex justify-between">
-							<input
-								id="rating"
-								min="0"
-								max="5"
-								type="range"
-								v-model="rating" />
-							<span>{{ rating }}</span>
+					<hr class="my-5" />
+					<button
+						class="mx-auto inline-block mb-5"
+						:disabled="!include.length"
+						@click="searchIngredients">
+						Search by ingredients
+					</button>
+					<div class="grid gap-5">
+						<div>
+							<label class="text-sm pb-1 block" for="to-include">
+								Ingredients
+							</label>
+							<input type="text" id="to-include" v-model="include" />
 						</div>
-					</div>
-					<div>
-						<label class="text-sm pb-1 block" for="duration"
-							>Maximum duration</label
-						>
-						<div class="flex justify-between">
-							<input
-								id="duration"
-								type="range"
-								max="18000"
-								step="300"
-								v-model="duration" />
-							<span>{{ durationPT }}</span>
+						<div>
+							<label class="text-sm pb-1 block" for="to-exclude">
+								Ingredients to exclude
+							</label>
+							<input type="text" id="to-exclude" v-model="exclude" />
+						</div>
+						<div>
+							<label class="text-sm pb-1 block" for="rating">
+								Minimum rating
+							</label>
+							<div class="flex justify-between">
+								<input
+									id="rating"
+									min="0"
+									max="5"
+									type="range"
+									v-model="rating" />
+								<span>{{ rating }}</span>
+							</div>
+						</div>
+						<div>
+							<label class="text-sm pb-1 block" for="duration">
+								Maximum duration
+							</label>
+							<div class="flex justify-between">
+								<input
+									id="duration"
+									type="range"
+									max="18000"
+									step="300"
+									v-model="duration" />
+								<span>{{ durationPT }}</span>
+							</div>
 						</div>
 					</div>
 				</div>

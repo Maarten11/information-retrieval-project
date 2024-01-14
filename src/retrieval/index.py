@@ -7,14 +7,7 @@ import pandas as pd
 from org.apache.lucene import document, index
 from pyarrow import Table
 from pyarrow import parquet as pq
-from retrieval.util import get_analyzer, get_index_dir, INGREDIENT_COLUMN
-
-from util import pt_time_to_seconds
-
-# Define the columns you would like to use
-COLUMNS = {'RecipeId': int, 'Name': str,
-           INGREDIENT_COLUMN: list, 'RecipeInstructions': list,
-           "Images": list, "CookTime": datetime}
+from retrieval.util import get_analyzer, get_index_dir, pt_time_to_seconds, COLUMNS
 
 
 def has_index(path: str) -> bool:
