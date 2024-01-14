@@ -13,7 +13,7 @@
 
 <template>
 	<div
-		class="shadow-lg bg-stone-800 bg-opacity-35 overflow-hidden rounded-md grid grid-cols-[auto,1fr] gap-5">
+		class="shadow-xl bg-stone-800 bg-opacity-35 overflow-hidden rounded-md grid grid-cols-[auto,1fr] gap-5">
 		<img
 			class="aspect-square max-h-24 object-cover overflow-hidden"
 			:src="props.Images ?? imgUrl"

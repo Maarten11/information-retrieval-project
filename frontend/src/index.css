@@ -58,6 +58,13 @@ button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
 }
 
+button:disabled {
+	background-color: hsl(0, 0%, 20%);
+	cursor: not-allowed;
+	outline-color: none;
+	border-color: none;
+}
+
 .card {
 	padding: 2em;
 }
@@ -66,10 +73,18 @@ button:focus-visible {
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 2rem;
-	text-align: center;
+	text-align: left;
+	width: 100%;
+	min-height: 100vh;
+	min-height: 100svh;
 }
 
-@media (prefers-color-scheme: light) {
+input[type="text"] {
+	padding: 0.25em;
+	border-radius: 0.25em;
+}
+
+/* @media (prefers-color-scheme: light) {
 	:root {
 		color: #213547;
 		background-color: #ffffff;
@@ -80,4 +95,4 @@ button:focus-visible {
 	button {
 		background-color: #f9f9f9;
 	}
-}
+} */

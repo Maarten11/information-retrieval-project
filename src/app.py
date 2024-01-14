@@ -1,3 +1,4 @@
+import json
 import lucene
 from flask import Flask, request
 from flask_cors import CORS
@@ -24,10 +25,15 @@ def search_recipe():
     include = data.get("include", None)
     if include is None:
         return {"message": "At least give one ingredient", "status": 400}
+    include = json.loads(include)
+    exclude = json.loads(data.get("exclude", "[]"))
+    name = data.get("Name", None)
+    duration = data.get("Duration", None)
+    rating = data.get("Rating", None)
 
     searcher, reader = search.get_searcher(INDEX_DIR)
 
-    hits = search.query_ingredients(searcher, ["milk", "eggs"])
+    hits = search.query_ingredients(searcher, include, exclude)
     storedFields = searcher.storedFields()
     results = []
     for hit in hits:
