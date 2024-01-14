@@ -1,3 +1,4 @@
+import lucene
 from org.apache.lucene import analysis, store
 from java.io import File
 
