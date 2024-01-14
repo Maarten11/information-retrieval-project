@@ -1,7 +1,7 @@
 import lucene
 from org.apache.lucene import index, queryparser, search
-
-from retrieval.util import get_analyzer, get_index_dir, INGREDIENT_COLUMN
+from org.apache.lucene.document import IntPoint
+from retrieval.util import INGREDIENT_COLUMN, get_analyzer, get_index_dir
 
 
 def get_searcher(index_path: str):
@@ -16,19 +16,22 @@ def get_searcher(index_path: str):
 
 
 def query_ingredients(
-    searcher, include: list[str], exclude: list[str] = [], limit: int = 10
+    searcher, include: list[str], exclude: list[str] = [],
+    duration_upper: int | None = None, limit: int = 10
 ):
     assert lucene.getVMEnv() or lucene.initVM()
     env = lucene.getVMEnv()
     env.attachCurrentThread()
 
-    query = create_ingredient_query(include, exclude)
+    query = create_ingredient_query(include, exclude, duration_upper)
 
     hits = searcher.search(query, limit).scoreDocs
     return hits
 
 
-def create_ingredient_query(include: list[str], exclude: list[str]):
+def create_ingredient_query(
+    include: list[str], exclude: list[str], duration_upper: int | None
+):
     assert lucene.getVMEnv() or lucene.initVM()
     env = lucene.getVMEnv()
     env.attachCurrentThread()
@@ -38,19 +41,35 @@ def create_ingredient_query(include: list[str], exclude: list[str]):
     parser = queryparser.classic.QueryParser(INGREDIENT_COLUMN, get_analyzer())
 
     # Restructure phrases to phrase queries
-    include_handled = [
-        f"{x}~" if len(x.split(" ")) == 1 else f'"{x}"~1' for x in include
-    ]
+    include_handled = []
+    for x in include:
+        if len(x.split(" ")) == 1:
+            fuzzy_str = f"{x}~"
+            if len(x) < 5:
+                fuzzy_str += "1"
+            include_handled.append(fuzzy_str)
+        else:
+            include_handled.append(f'"{x}"~1')
     include_str = " OR ".join(include_handled)
     exclude_handled = [
         x if len(x.split(" ")) == 1 else f'"{x}"' for x in exclude
     ]
-
     query_str = '(' + include_str + ')'
     for excluded in exclude_handled:
         query_str += f" AND NOT {excluded}"
 
-    return parser.parse(query_str)
+    ingredients_query = parser.parse(query_str)
+    if duration_upper is None:
+        return ingredients_query
+
+    dur_query = IntPoint.newRangeQuery("CookTime", 0, duration_upper)
+
+    query_builder = search.BooleanQuery.Builder()
+    query_builder.add(dur_query, search.BooleanClause.Occur.FILTER)
+    query_builder.add(ingredients_query, search.BooleanClause.Occur.MUST)
+    query = query_builder.build()
+
+    return query
 
 
 def query_recipe_name(searcher, name: str, limit: int = 10):

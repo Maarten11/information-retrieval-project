@@ -9,5 +9,5 @@ def print_hit(searcher, hit, column):
     storedFields = searcher.storedFields()
     hitDoc = storedFields.document(hit.doc)
     ingredients = hitDoc.get(INGREDIENT_COLUMN).split("., ")
-    print(hitDoc.get("Name") + ":", ingredients)
+    print(hitDoc.get("Name") + ":", hitDoc.get("CookTime"), ingredients)
     print(hit.score)

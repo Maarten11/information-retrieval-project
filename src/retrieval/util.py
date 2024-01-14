@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import isodate
 import lucene
 from org.apache.lucene import analysis, store
