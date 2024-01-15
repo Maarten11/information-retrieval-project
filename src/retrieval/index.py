@@ -2,16 +2,17 @@
 import math
 import os
 import shutil
-from datetime import datetime
-
-import numpy as np
 
 import lucene
+import numpy as np
 import pandas as pd
 from org.apache.lucene import document, index
-from pyarrow import Table
-from pyarrow import parquet as pq
-from retrieval.util import get_analyzer, get_index_dir, pt_time_to_seconds
+from retrieval.util import (
+    get_analyzer,
+    get_index_dir,
+    get_similarity,
+    pt_time_to_seconds,
+)
 
 
 def has_index(path: str) -> bool:
@@ -46,6 +47,7 @@ def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str) ->
     # Directory to store the index
     directory = get_index_dir(index_path)
     config = index.IndexWriterConfig(analyzer)
+    config.setSimilarity(get_similarity())
     iwriter = index.IndexWriter(directory, config)
 
     # table: Table = pq.read_table(
