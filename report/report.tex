@@ -60,6 +60,15 @@ We wanted to allow the user to search for parts of the ingredients of the recipe
 This allows us to make suggestions based on recipes for which the user has all
 ingredients already or suggest recipes for which some extra items are needed.
 % TODO: klopt dit in onze tests?
+\\~\\
+Next, we wanted to extend on the functionalities present in supercook, by
+allowing the user the specify a range for both rating and duration.
+The rating range allows the user to set a lower bound for the ratings the
+returned recipes can have. For example: setting range to 3 will ensure our
+system only returns recipes with a rating of 3 of higher.
+The opposite goes for the duration. The duration allows you to specify a maximum
+duration. As a consequence, the returned recipes will only have a duration that is
+smaller than the maximum duration specified.
 
 \section{System, algorithms and covered topics}
 \subsection{System}
@@ -67,12 +76,11 @@ We have built a web server that acts as an api endpoint to facilitate
 the recipe searching. This api can handle a request taking in which
 ingredients you have at your disposal.
 It also allows you to specify certain ingredients you wish to exclude.
-% TODO: continue
 This would benefit users that have certain allergies, in that they could
 rule out certain recipes without having to look through them first.
+% TODO: continue
 
 \subsection{Algorithms}
-% todo: continue
 Our solution makes use of the Apache Lucene project. This is an open-source
 search software that implements most of the widely used Information Retrieval
 algorithms. One of the algorithms used is the BestMatch25 algorithm.
@@ -90,6 +98,9 @@ Where \begin{itemize}
     \item $k_1$: tuning parameter controlling the document term frequency scaling
     \item $b$: tuning paramter controlling the scaling by document length
 \end{itemize}
+\small
+\textit{Adapted from the lecture slides}\\~\\
+\normalsize
 % TODO: is this still the case?
 The default BM25Similarity implementation in lucene uses $k_1 = 1.2$ and $b=0.75$.
 We tested this to have different values for $b$ to try and better hold into account
@@ -107,6 +118,9 @@ Where \begin{itemize}
     \item $boost$: user specified boost for terms
     \item norm: normalization
 \end{itemize}
+\small
+\textit{Adapted from the lecture slides}\\~\\
+\normalsize
 
 \subsection{Topics seen in class}
 \begin{itemize}
@@ -120,12 +134,16 @@ Where \begin{itemize}
 
 \section{Implementation details}
 For ease of use on different systems, we decided to build our project
-using a \texttt{docker} image. We are using an underlying search library called \texttt{lucene},
-that was written in \texttt{Java} and thus requires some setup to work properly with
-\texttt{python}. This setup is facilitated by using the \texttt{docker} image,
-in combination with \texttt{docker compose}.
-To get the project to work with \texttt{python}, we used a \texttt{python} binding of the \texttt{Java lucene}
-library to allow \texttt{python} developers to access the features of lucene in \texttt{python}.
+using a docker image. We are using an underlying search library called lucene,
+that was written in Java and thus requires some setup to work properly with
+python. This setup is facilitated by using the docker image,
+in combination with docker compose.
+To get the project to work with python, we used a python binding of the Java lucene
+library to allow python developers to access the features of lucene in python.
+\\~\\
+We also briefly experimented with a python wrapper for the pylucene project, named lupyne.
+However, we quickly noticed that this would limit the functionality of lucene
+that we could use, so we decided to scrap lupyne and use pylucene.
 
 
 \section{Evaluation criteria to evaluate performance}
@@ -133,9 +151,16 @@ library to allow \texttt{python} developers to access the features of lucene in 
 \section{Quantitative results from the evaluation}
 
 \section{Limitations}
+\subsection{Ingredient autocompletion}
 There is no autocompletion to add ingredients. However, be chose the more
 "Information Retrieval" way of handling this by allowing spelling mistakes.
 The searcher circumvents this, both by using stemming and levenshtein distance.
+\subsection{Duration range}
+Currently our system does not allow users to specify a range for the duration,
+in the sense that they can currenlty only set a maximum duration.
+It is possible with the current setup to allow for users to specify a range of
+in which the duration must fall, let's say between 30 mins and 1hr. However,
+we figured this would not be a common use case.
 
 \section{References}
 \begin{itemize}
