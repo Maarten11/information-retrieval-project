@@ -1,11 +1,10 @@
-from datetime import datetime
 import isodate
 import lucene
-from org.apache.lucene import analysis, store
-from java.io import File
-from pyarrow import parquet as pq
 import pandas as pd
-
+from java.io import File
+from org.apache.lucene import analysis, store
+from org.apache.lucene.search.similarities import ClassicSimilarity
+from pyarrow import parquet as pq
 
 INGREDIENT_COLUMN = "RecipeIngredientParts"
 IMAGES_COLUMN = "Images"
@@ -65,3 +64,7 @@ def get_analyzer():
 
 def get_index_dir(path: str):
     return store.FSDirectory.open(File(path).toPath())
+
+
+def get_similarity():
+    return ClassicSimilarity()

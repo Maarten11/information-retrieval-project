@@ -1,7 +1,12 @@
 import lucene
 from org.apache.lucene import index, queryparser, search
 from org.apache.lucene.document import IntPoint
-from retrieval.util import INGREDIENT_COLUMN, get_analyzer, get_index_dir
+from retrieval.util import (
+    INGREDIENT_COLUMN,
+    get_analyzer,
+    get_index_dir,
+    get_similarity,
+)
 
 
 def get_searcher(index_path: str):
@@ -12,6 +17,7 @@ def get_searcher(index_path: str):
     directory = get_index_dir(index_path)
     reader = index.DirectoryReader.open(directory)
     searcher = search.IndexSearcher(reader)
+    searcher.setSimilarity(get_similarity())
     return searcher, reader
 
 
