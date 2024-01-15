@@ -17,6 +17,36 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 
+@app.route("/search", methods=["POST"])
+def search_recipes():
+    data = request.form
+
+    name = data.get("name", "")
+    include = data.get("include", "[]")
+    print(include, flush=True)
+    if not name and include == "[]":
+        return "Provide at least a name or an ingredient", 400
+
+    include = json.loads(include)
+    exclude = json.loads(data.get("exclude", "[]"))
+    duration = data.get("duration", None)
+    if duration is not None:
+        duration = int(duration)
+    rating = data.get("rating", None)
+    if rating is not None:
+        rating = int(rating)
+
+    print(name, include, exclude, duration, rating, flush=True)
+    searcher, reader = search.get_searcher(INDEX_DIR)
+    hits = search.query_recipes(
+        searcher, name, include, exclude, duration, rating, limit=10)
+
+    results = util.hits_to_json_response(searcher, hits)
+
+    reader.close()
+    return results
+
+
 @app.route("/search_recipe", methods=["POST"])
 def search_recipe():
     data = request.form
