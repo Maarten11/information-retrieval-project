@@ -80,6 +80,7 @@
 	const duration = ref("0");
 	// Visualize the duration
 	const durationPT = computed(() =>
+		// Reference https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
 		duration.value === "0"
 			? "No maximum"
 			: new Date(Number.parseInt(duration.value) * 1000)

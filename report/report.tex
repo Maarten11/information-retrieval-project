@@ -14,13 +14,89 @@
     }
 
 \title{\textbf{\documentTitle}}
-\author{Sander Marinus - s0205151 \& Maarten Peirsman - s0207151}
+\author{Sander Marinus - s0205151\\Maarten Peirsman - s0207151}
 
 \begin{document}
 \maketitle
 
+\section{Problem Definition}
+We made a search engine that allows users to search through over $500.000$
+recipes and close to $1.500.000$ reviews, using different parameters, as
+inspired by \href{https://supercook.com}{supercook.com}.
+The available parameters are $Included\ Ingredients$,
+$Excluded\ Ingredients$, $Name$, $Rating$ and $Duration$.\\~\\
+The purpose of this search engine is to allow users to specify which
+ingredients they already have, and present them with possible recipes this
+would allow them to make.
+We wanted to allow the user to search for parts of the ingredients of the recipe.
+This allows us to make suggestions based on recipes for which the user has all
+ingredients already or suggest recipes for which some extra items are needed.
+% TODO: klopt dit in onze tests?
+
+\section{System, algorithms and covered topics}
+\subsection{System}
+We have built a web server that acts as an api endpoint to facilitate
+the recipe searching. This api can handle a request taking in which
+ingredients you have at your disposal.
+It also allows you to specify certain ingredients you wish to exclude.
+% TODO: continue
+This would benefit users that have certain allergies, in that they could
+rule out certain recipes without having to look through them first.
+
+\subsection{Algorithms}
+% todo: continue
+Our solution makes use of the Apache Lucene project. This is an open-source
+search software that implements most of the widely used Information Retrieval
+algorithms. One of the algorithms used is the BestMatch25 algorithm.
+\subsubsection{BestMatch25}
+The BestMatch25 is a probabilistic model that aims to improve on the basic
+Binary Independence Model (BIM). It does this by first using a simple scoring
+for the query terms in the document.
+$$RSV_d=\displaystyle\sum_{t\in q}\log \frac{N}{df_t}$$
+Next it improves upon this simple scoring by taking into account the term
+frequency and document length.
+$$RSV_d=\displaystyle\sum_{t\in q}\log \left(\frac{N}{df_t}\right) \frac{(k_1 + 1) tf_{td}}{k_1((1 - b) + b \cdot (L_d/L_{ave}))+tf_{td}}$$
+Where \begin{enumerate}
+    \item $tf_{td}$: term frequency in document $d$
+    \item $L_d\ (L_{ave})$: length of document $d$ (average document length in the whole collection)
+    \item $k_1$: tuning parameter controlling the document term frequency scaling
+    \item $b$: tuning paramter controlling the scaling by document length
+\end{enumerate}
+% TODO: is this still the case?
+The default BM25Similarity implementation in lucene uses $k_1 = 1.2$ and $b=0.75$.
+We changed this to have $b=1$.
+
+\subsection{Topics seen in class}
+\begin{itemize}
+    \item Edit distance for spelling correction
+    \item Boolean search
+    \item Ranked Retrieval
+    \item Inverted index % TODO: remove?
+    \item Okapi BM25 model
+\end{itemize}
+
+\section{Implementation details}
+For ease of use on different systems, we decided to build our project
+using a \texttt{docker} image. We are using an underlying search library called \texttt{lucene},
+that was written in \texttt{Java} and thus requires some setup to work properly with
+\texttt{python}. This setup is facilitated by using the \texttt{docker} image,
+in combination with \texttt{docker compose}.
+To get the project to work with \texttt{python}, we used a \texttt{python} binding of the \texttt{Java lucene}
+library to allow \texttt{python} developers to access the features of lucene in \texttt{python}.
+
+
+\section{Evaluation criteria to evaluate performance}
+
+\section{Quantitative results from the evaluation}
+
+\section{Limitations}
+There is no autocompletion to add ingredients. However, be chose the more
+"Information Retrieval" way of handling this by allowing spelling mistakes.
+The searcher circumvents this, both by using stemming and levenshtein distance.
+
 \section{References}
 \begin{itemize}
+    \item Information Retrieval Course Notes
     \item \url{https://lucene.apache.org/core/2_9_4/queryparsersyntax.html}
     \item \url{https://lucene.apache.org/pylucene/features.html}
     \item \url{https://www.kaggle.com/datasets/irkaal/foodcom-recipes-and-reviews?resource=download}
@@ -29,7 +105,18 @@
     \item \url{https://tailwindcss.com/docs/guides/vite#vue}
     \item \url{https://www.supercook.com/#/desktop}
     \item \url{https://nlp.stanford.edu/IR-book/html/htmledition/queries-as-vectors-1.html}
-    \item  \url{https://en.wikipedia.org/wiki/Tf%E2%80%93idf}
+    \item \url{https://en.wikipedia.org/wiki/Tf%E2%80%93idf}
+    \item \url{https://nlp.stanford.edu/IR-book/pdf/08eval.pdf}
+    \item \url{https://stackoverflow.com/a/55477743}
+    \item \url{https://coady.github.io/lupyne/examples/}
+    \item \url{https://lucene.apache.org/core/9_9_1/core/index.html}
+    \item \url{https://www.baeldung.com/lucene-analyzers}
+    \item \url{https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/analysis/package-summary.html}
+    \item \url{https://stackoverflow.com/questions/64714307/how-to-use-queryparser-for-lucene-range-queries-intpoint-longpoint}
+    \item \url{https://pandas.pydata.org/docs/user_guide/merging.html}
+    \item \url{https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch}
+    \item \url{https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript}
+    \item \url{https://arrow.apache.org/docs/python/generated/pyarrow.parquet.read_table.html}
 \end{itemize}
 
 \end{document}

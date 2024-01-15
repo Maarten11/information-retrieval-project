@@ -4,3 +4,13 @@
 - https://www.baeldung.com/lucene-analyzers
 - https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/analysis/package-summary.html
 - https://stackoverflow.com/questions/64714307/how-to-use-queryparser-for-lucene-range-queries-intpoint-longpoint
+- https://lucene.apache.org/core/2_9_4/queryparsersyntax.html
+- https://lucene.apache.org/pylucene/features.html
+- https://www.kaggle.com/datasets/irkaal/foodcom-recipes-and-reviews?resource=download
+- https://hub.docker.com/r/coady/pylucene
+- https://vitejs.dev/guide/
+- https://tailwindcss.com/docs/guides/vite#vue
+- https://www.supercook.com/#/desktop
+- https://nlp.stanford.edu/IR-book/html/htmledition/queries-as-vectors-1.html
+- https://en.wikipedia.org/wiki/Tf%E2%80%93idf
+- https://nlp.stanford.edu/IR-book/pdf/08eval.pdf
