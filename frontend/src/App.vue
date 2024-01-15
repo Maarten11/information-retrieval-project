@@ -5,35 +5,6 @@
 
 	const recipes: Ref<IRecipe[] | null> = ref(null);
 
-	const searchRecipe = async () => {
-		const form = new FormData();
-		form.append("Name", name.value);
-		const request = await fetch("http://localhost:8000/search_recipe", {
-			body: form,
-			method: "POST",
-		});
-		const response = await request.json();
-		recipes.value = response;
-	};
-
-	// Search request
-	const searchIngredients = async () => {
-		const includeList = include.value.split(",").map((s) => s.trim());
-		const excludeList = !!exclude.value.length
-			? exclude.value.split(",").map((s) => s.trim())
-			: [];
-		const form = new FormData();
-		form.append("include", JSON.stringify(includeList));
-		form.append("exclude", JSON.stringify(excludeList));
-		form.append("duration", duration.value);
-		form.append("rating", rating.value);
-		const request = await fetch("http://localhost:8000/search_ingredients", {
-			body: form,
-			method: "POST",
-		});
-		const response = await request.json();
-		recipes.value = response;
-	};
 	const selectedRecipe: Ref<IRecipe | undefined> = ref(undefined);
 	const select = (recipe: IRecipe | undefined) => {
 		console.log("Selecting");
@@ -103,17 +74,6 @@
 		<div class="h-full w-full grid grid-cols-[auto,1fr] gap-10">
 			<aside class="h-full border-r-[1px] pe-10 border-white">
 				<div class="sticky top-5 left-0">
-					<!-- <button -->
-					<!-- 	class="mx-auto inline-block mb-5" -->
-					<!-- 	:disabled="!name.length" -->
-					<!-- 	@click="searchRecipe"> -->
-					<!-- 	Search by name -->
-					<!-- </button> -->
-					<!-- <div> -->
-					<!-- 	<label class="text-sm pb-1 block" for="name">Name</label> -->
-					<!-- 	<input type="text" id="name" v-model="name" /> -->
-					<!-- </div> -->
-					<!-- <hr class="my-5" /> -->
 					<button
 						class="mx-auto inline-block mb-5"
 						:disabled="!include.length && !name.length"

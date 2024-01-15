@@ -30,13 +30,6 @@
 					>{{ ratingInt }}/5</span
 				>
 			</div>
-			<!-- <ul>
-				<li
-					v-for="(ingredient, index) in props.RecipeIngredientParts"
-					:key="index">
-					{{ ingredient }}
-				</li>
-			</ul> -->
 			<span class="text-sm">{{ props.RecipeIngredientParts.join(", ") }}</span>
 		</div>
 	</div>
