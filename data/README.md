@@ -34,7 +34,7 @@ For the project we used following datasets:
 | **Dataset**                    | **Source**                                                                   | **Present**        |
 | ------------------------------ | ---------------------------------------------------------------------------- | ------------------ |
 | Food.com - Recipes and Reviews | [Kaggle](https://www.kaggle.com/datasets/irkaal/foodcom-recipes-and-reviews) | :x:                |
-| test_data                      | Self generated                                                               | :heavy_check_mark: |
+| test_data                      | Self generated                                                               | :white_check_mark: |
 
 The test_data dataset is self generated.
 It can be regenerated with the [gen_test_data.py](./src/gen_test_data.py) script.
