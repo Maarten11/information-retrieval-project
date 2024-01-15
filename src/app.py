@@ -40,7 +40,11 @@ def search_ingredients():
     include = json.loads(include)
     exclude = json.loads(data.get("exclude", "[]"))
     duration = data.get("Duration", None)
+    if duration is not None:
+        duration = int(duration)
     rating = data.get("Rating", None)
+    if rating is not None:
+        rating = int(rating)
 
     searcher, reader = search.get_searcher(INDEX_DIR)
 
