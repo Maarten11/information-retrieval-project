@@ -1,6 +1,7 @@
 # Hele dataset verwerken
 import math
 import os
+import shutil
 from datetime import datetime
 
 import numpy as np
@@ -17,6 +18,11 @@ def has_index(path: str) -> bool:
     return os.path.isdir(path) and bool(len(os.listdir(path)))
 
 
+def remove_index(path: str):
+    if os.path.isdir(path):
+        shutil.rmtree(path)
+
+
 def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str) -> None:
     """
     Generates an index for the provided data
@@ -24,18 +30,13 @@ def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str) ->
 
     :param path: string to the parquet file
     """
-
+    assert lucene.getVMEnv() or lucene.initVM()
+    env = lucene.getVMEnv()
+    env.attachCurrentThread()
     print(
         f"Writing data to index at '{index_path}'",
         flush=True
     )
-    # Don't remove the index so that we can add to it???
-    # if os.path.isdir(INDEX_DIR):
-    #     shutil.rmtree(INDEX_DIR)
-
-    assert lucene.getVMEnv() or lucene.initVM()
-    env = lucene.getVMEnv()
-    env.attachCurrentThread()
 
     # NOTE: Use the english analyzer to enable stemming.
     #       This can be usefull for searching the ingredients.

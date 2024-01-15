@@ -78,6 +78,8 @@ FORCE_REINDEX = True
 if __name__ == "__main__":
     lucene.initVM()
     if not index.has_index(INDEX_DIR) or FORCE_REINDEX:
+        if FORCE_REINDEX:
+            index.remove_index(INDEX_DIR)
         recipes = util.pq_to_df("./data/recipes.parquet",
                                 list(util.RECIPE_COLUMNS.keys()))
         ratings = util.pq_to_df("./data/reviews.parquet",
