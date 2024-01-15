@@ -6,6 +6,7 @@ from flask_cors import CORS
 from retrieval import index, search, util
 
 INDEX_DIR = "./store"
+DATA_DIR = "../data/"
 
 
 app = Flask(__name__)
@@ -112,9 +113,9 @@ if __name__ == "__main__":
     if not index.has_index(INDEX_DIR) or FORCE_REINDEX:
         if FORCE_REINDEX:
             index.remove_index(INDEX_DIR)
-        recipes = util.pq_to_df("./data/recipes.parquet",
+        recipes = util.pq_to_df(DATA_DIR + "recipes.parquet",
                                 list(util.RECIPE_COLUMNS.keys()))
-        ratings = util.pq_to_df("./data/reviews.parquet",
+        ratings = util.pq_to_df(DATA_DIR + "reviews.parquet",
                                 list(util.RATINGS_COLUMNS.keys())).groupby([util.ID_COLUMN]).mean()
 
         # TODO: check if other 'how' method is better
