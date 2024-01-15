@@ -7,14 +7,14 @@ import pandas as pd
 from org.apache.lucene import document, index
 from pyarrow import Table
 from pyarrow import parquet as pq
-from retrieval.util import get_analyzer, get_index_dir, pt_time_to_seconds, RECIPE_COLUMNS
+from retrieval.util import get_analyzer, get_index_dir, pt_time_to_seconds
 
 
 def has_index(path: str) -> bool:
     return os.path.isdir(path) and bool(len(os.listdir(path)))
 
 
-def index_data(pd_table: pd.DataFrame, index_path: str) -> None:
+def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str) -> None:
     """
     Generates an index for the provided data
     Note: the data should be stored in a parquet file
@@ -65,21 +65,50 @@ def index_data(pd_table: pd.DataFrame, index_path: str) -> None:
                     doc.add(document.Field(
                         key, list(value)[0], document.TextField.TYPE_STORED
                     ))
-            elif RECIPE_COLUMNS[key] == list:
+            elif column_mapping[key] == "list":
                 new_value = "., ".join(value)
                 doc.add(document.Field(
                         key, new_value, document.TextField.TYPE_STORED))
                 # doc.add(document.Field(
                 #     key, test, document.TextField.TYPE_STORED))
-            elif RECIPE_COLUMNS[key] == int:
+            elif column_mapping[key] == "int":
+                # NOTE: unused
                 doc.add(document.IntPoint(key, int(value)))
                 doc.add(document.Field(
                     key, value, document.StringField.TYPE_STORED))
-            elif RECIPE_COLUMNS[key] == datetime:
+            elif column_mapping[key] == "datetime":
                 new_value = int(pt_time_to_seconds(value))
                 doc.add(document.IntPoint(key, new_value))
                 doc.add(document.Field(key, new_value,
                         document.StringField.TYPE_STORED))
+            elif column_mapping[key] == "float":
+                # test = document.FloatPoint(key, 0.0)
+                # new_type = document.FieldType(test.fieldType())
+                # new_type.setIndexOptions(
+                #     index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
+                # new_type.setStored(True)
+                point = document.FloatPoint(key, value)
+                type = document.FieldType(point.fieldType())
+                type.setIndexOptions(
+                    index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
+                type.setDimensions(0, 0)
+                type.setStored(True)
+                doc.add(document.Field(
+                    point.name(), value, type))
+                # doc.add(document.FloatDocValuesField(key, float(value)))
+                # type = document.FieldType()
+                # type.setIndexOptions(
+                #     index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
+                # type.setStored(True)
+                # doc.add(document.Field(key, str(value), new_type))
+                # doc.add(document.TextField(
+                #     key, str(value), document.Field.Store.YES))
+                # doc.add(document.Field(key, str(value),
+                #         document.FloatRange(key, [0.0], [5.0])))
+                # v = int(float(value) * 1000)
+                # doc.add(document.IntPoint(key, v))
+                # doc.add(document.Field(
+                #     key, value, document.StringField.TYPE_STORED))
             else:
                 doc.add(document.Field(
                     key, value, document.TextField.TYPE_STORED))

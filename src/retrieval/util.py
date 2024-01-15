@@ -12,12 +12,12 @@ IMAGES_COLUMN = "Images"
 ID_COLUMN = "RecipeId"
 
 # Define the columns you would like to use
-RECIPE_COLUMNS = {ID_COLUMN: int, 'Name': str,
-                  INGREDIENT_COLUMN: list, 'RecipeInstructions': list,
-                  IMAGES_COLUMN: list, "CookTime": datetime}
+RECIPE_COLUMNS = {ID_COLUMN: "int", 'Name': "str",
+                  INGREDIENT_COLUMN: "list", 'RecipeInstructions': "list",
+                  IMAGES_COLUMN: "list", "CookTime": "datetime"}
 
 RATINGS_COLUMNS = {
-    ID_COLUMN: int, "Ratings": float
+    ID_COLUMN: "int", "Rating": "float"
 }
 
 
@@ -44,7 +44,7 @@ def hits_to_json_response(searcher, hits) -> list:
         for field in hitDoc.getFields():
             name = field.name()
             value = hitDoc.getValues(name)[0]
-            if RECIPE_COLUMNS[name] == list and name != IMAGES_COLUMN:
+            if COLUMNS[name] == "list" and name != IMAGES_COLUMN:
                 value = value.split("., ")
             recipe[field.name()] = value
         results.append(recipe)

@@ -69,11 +69,17 @@ def search_ingredients():
 
 
 FORCE_REINDEX = True
+# FORCE_REINDEX = False
 
 if __name__ == "__main__":
     lucene.initVM()
     if not index.has_index(INDEX_DIR) or FORCE_REINDEX:
-        index.index_data(util.pq_to_df("./data/recipes.parquet",
-                         list(util.RECIPE_COLUMNS.keys())), INDEX_DIR)
+        recipes = util.pq_to_df("./data/recipes.parquet",
+                                list(util.RECIPE_COLUMNS.keys()))
+        ratings = util.pq_to_df("./data/reviews.parquet",
+                                list(util.RATINGS_COLUMNS.keys())).groupby([util.ID_COLUMN]).mean()
+
+        combined = recipes.join(ratings, on=util.ID_COLUMN)
+        index.index_data(combined, util.COLUMNS, INDEX_DIR)
 
     app.run(host="0.0.0.0")
