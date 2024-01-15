@@ -4,7 +4,7 @@
 		Name: string;
 		RecipeIngredientParts: Array<string>;
 		RecipeInstructions: Array<string>;
-		Rating?: number;
+		Rating?: string;
 	}
 </script>
 <script setup lang="ts">
@@ -12,7 +12,7 @@
 	const props = defineProps<IRecipe>();
 
 	const ratingInt: undefined | number = !!props.Rating
-		? Math.floor(props.Rating)
+		? Math.floor(Number.parseFloat(props.Rating))
 		: undefined;
 </script>
 
