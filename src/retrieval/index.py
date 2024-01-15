@@ -7,7 +7,7 @@ import pandas as pd
 from org.apache.lucene import document, index
 from pyarrow import Table
 from pyarrow import parquet as pq
-from retrieval.util import get_analyzer, get_index_dir, pt_time_to_seconds, COLUMNS
+from retrieval.util import get_analyzer, get_index_dir, pt_time_to_seconds, RECIPE_COLUMNS
 
 
 def has_index(path: str) -> bool:
@@ -44,7 +44,8 @@ def index_data(file_path: str, index_path: str) -> None:
     config = index.IndexWriterConfig(analyzer)
     iwriter = index.IndexWriter(directory, config)
 
-    table: Table = pq.read_table(file_path, columns=list(COLUMNS.keys()))
+    table: Table = pq.read_table(
+        file_path, columns=list(RECIPE_COLUMNS.keys()))
 
     pd_table: pd.DataFrame = table.to_pandas()
 
@@ -64,17 +65,17 @@ def index_data(file_path: str, index_path: str) -> None:
                     doc.add(document.Field(
                         key, list(value)[0], document.TextField.TYPE_STORED
                     ))
-            elif COLUMNS[key] == list:
+            elif RECIPE_COLUMNS[key] == list:
                 new_value = "., ".join(value)
                 doc.add(document.Field(
                         key, new_value, document.TextField.TYPE_STORED))
                 # doc.add(document.Field(
                 #     key, test, document.TextField.TYPE_STORED))
-            elif COLUMNS[key] == int:
+            elif RECIPE_COLUMNS[key] == int:
                 doc.add(document.IntPoint(key, int(value)))
                 doc.add(document.Field(
                     key, value, document.StringField.TYPE_STORED))
-            elif COLUMNS[key] == datetime:
+            elif RECIPE_COLUMNS[key] == datetime:
                 new_value = int(pt_time_to_seconds(value))
                 doc.add(document.IntPoint(key, new_value))
                 doc.add(document.Field(key, new_value,

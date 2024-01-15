@@ -6,11 +6,27 @@ from java.io import File
 
 
 INGREDIENT_COLUMN = "RecipeIngredientParts"
+IMAGES_COLUMN = "Images"
+ID_COLUMN = "RecipeId"
 
 # Define the columns you would like to use
-COLUMNS = {'RecipeId': int, 'Name': str,
-           INGREDIENT_COLUMN: list, 'RecipeInstructions': list,
-           "Images": list, "CookTime": datetime}
+RECIPE_COLUMNS = {ID_COLUMN: int, 'Name': str,
+                  INGREDIENT_COLUMN: list, 'RecipeInstructions': list,
+                  IMAGES_COLUMN: list, "CookTime": datetime}
+
+RATINGS_COLUMNS = {
+    ID_COLUMN: int, "Ratings": float
+}
+
+
+def merge_dicts(d1: dict, d2: dict) -> dict:
+    result = dict()
+    result.update(d1)
+    result.update(d2)
+    return result
+
+
+COLUMNS = merge_dicts(RECIPE_COLUMNS, RATINGS_COLUMNS)
 
 
 def hits_to_json_response(searcher, hits) -> list:
@@ -22,7 +38,7 @@ def hits_to_json_response(searcher, hits) -> list:
         for field in hitDoc.getFields():
             name = field.name()
             value = hitDoc.getValues(name)[0]
-            if COLUMNS[name] == list and name != 'Images':
+            if RECIPE_COLUMNS[name] == list and name != IMAGES_COLUMN:
                 value = value.split("., ")
             recipe[field.name()] = value
         results.append(recipe)
