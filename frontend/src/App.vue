@@ -80,11 +80,17 @@
 	const duration = ref("0");
 	// Visualize the duration
 	const durationPT = computed(() =>
-		new Date(Number.parseInt(duration?.value ?? 0) * 1000)
-			.toISOString()
-			.slice(11, 16)
-			.replace(":", "H")
-			.concat("M")
+		duration.value === "0"
+			? "No maximum"
+			: new Date(Number.parseInt(duration.value) * 1000)
+					.toISOString()
+					.slice(11, 16)
+					.replace(":", "H")
+					.concat("M")
+	);
+
+	const ratingShow = computed(() =>
+		rating.value === "0" ? "No minimum" : rating.value
 	);
 
 	const name = ref("");
@@ -147,7 +153,7 @@
 									max="5"
 									type="range"
 									v-model="rating" />
-								<span>{{ rating }}</span>
+								<span>{{ ratingShow }}</span>
 							</div>
 						</div>
 						<div>
