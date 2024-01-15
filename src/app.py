@@ -73,6 +73,7 @@ FORCE_REINDEX = True
 if __name__ == "__main__":
     lucene.initVM()
     if not index.has_index(INDEX_DIR) or FORCE_REINDEX:
-        index.index_data("./data/recipes.parquet", INDEX_DIR)
+        index.index_data(util.pq_to_df("./data/recipes.parquet",
+                         list(util.RECIPE_COLUMNS.keys())), INDEX_DIR)
 
     app.run(host="0.0.0.0")

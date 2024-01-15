@@ -14,7 +14,7 @@ def has_index(path: str) -> bool:
     return os.path.isdir(path) and bool(len(os.listdir(path)))
 
 
-def index_data(file_path: str, index_path: str) -> None:
+def index_data(pd_table: pd.DataFrame, index_path: str) -> None:
     """
     Generates an index for the provided data
     Note: the data should be stored in a parquet file
@@ -23,7 +23,7 @@ def index_data(file_path: str, index_path: str) -> None:
     """
 
     print(
-        f"Writing data to index at '{index_path}' from '{file_path}'",
+        f"Writing data to index at '{index_path}'",
         flush=True
     )
     # Don't remove the index so that we can add to it???
@@ -44,10 +44,10 @@ def index_data(file_path: str, index_path: str) -> None:
     config = index.IndexWriterConfig(analyzer)
     iwriter = index.IndexWriter(directory, config)
 
-    table: Table = pq.read_table(
-        file_path, columns=list(RECIPE_COLUMNS.keys()))
+    # table: Table = pq.read_table(
+    #     file_path, columns=list(RECIPE_COLUMNS.keys()))
 
-    pd_table: pd.DataFrame = table.to_pandas()
+    # pd_table: pd.DataFrame = table.to_pandas()
 
     for row in pd_table.itertuples():
         # Convert to dict
@@ -85,6 +85,6 @@ def index_data(file_path: str, index_path: str) -> None:
                     key, value, document.TextField.TYPE_STORED))
         iwriter.addDocument(doc)
 
-    print(f"'{file_path}' added to index", flush=True)
+    print(f"added to index", flush=True)
     iwriter.close()
     directory.close()

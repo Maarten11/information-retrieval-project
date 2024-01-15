@@ -3,6 +3,8 @@ import isodate
 import lucene
 from org.apache.lucene import analysis, store
 from java.io import File
+from pyarrow import parquet as pq
+import pandas as pd
 
 
 INGREDIENT_COLUMN = "RecipeIngredientParts"
@@ -27,6 +29,10 @@ def merge_dicts(d1: dict, d2: dict) -> dict:
 
 
 COLUMNS = merge_dicts(RECIPE_COLUMNS, RATINGS_COLUMNS)
+
+
+def pq_to_df(path: str, columns: list[str]) -> pd.DataFrame:
+    return pq.read_table(path, columns=columns).to_pandas()
 
 
 def hits_to_json_response(searcher, hits) -> list:
