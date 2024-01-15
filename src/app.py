@@ -39,13 +39,13 @@ def search_ingredients():
         return "At least give one ingredient", 400
     include = json.loads(include)
     exclude = json.loads(data.get("exclude", "[]"))
-    name = data.get("Name", None)
     duration = data.get("Duration", None)
     rating = data.get("Rating", None)
 
     searcher, reader = search.get_searcher(INDEX_DIR)
 
-    hits = search.query_ingredients(searcher, include, exclude)
+    hits = search.query_ingredients(
+        searcher, include, exclude, duration, rating)
     # storedFields = searcher.storedFields()
     # results = []
     # for hit in hits:
@@ -79,7 +79,8 @@ if __name__ == "__main__":
         ratings = util.pq_to_df("./data/reviews.parquet",
                                 list(util.RATINGS_COLUMNS.keys())).groupby([util.ID_COLUMN]).mean()
 
-        combined = recipes.join(ratings, on=util.ID_COLUMN)
+        # TODO: check if other 'how' method is better
+        combined = recipes.join(ratings, on=util.ID_COLUMN, how="inner")
         index.index_data(combined, util.COLUMNS, INDEX_DIR)
 
     app.run(host="0.0.0.0")

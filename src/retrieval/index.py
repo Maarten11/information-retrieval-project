@@ -1,6 +1,9 @@
 # Hele dataset verwerken
+import math
 import os
 from datetime import datetime
+
+import numpy as np
 
 import lucene
 import pandas as pd
@@ -78,23 +81,32 @@ def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str) ->
                     key, value, document.StringField.TYPE_STORED))
             elif column_mapping[key] == "datetime":
                 new_value = int(pt_time_to_seconds(value))
+                # New
+                # point = document.IntPoint(key, new_value)
+                # type = document.FieldType(point.fieldType())
+                # type.setStored(True)
+                # doc.add(document.Field(point.name(), new_value, type))
+                # Old
                 doc.add(document.IntPoint(key, new_value))
                 doc.add(document.Field(key, new_value,
                         document.StringField.TYPE_STORED))
             elif column_mapping[key] == "float":
+                if np.isnan(value):
+                    continue
                 # test = document.FloatPoint(key, 0.0)
                 # new_type = document.FieldType(test.fieldType())
                 # new_type.setIndexOptions(
                 #     index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
                 # new_type.setStored(True)
-                point = document.FloatPoint(key, value)
+                v = math.floor(value + 0.5)
+                point = document.IntPoint(key, v)
                 type = document.FieldType(point.fieldType())
                 type.setIndexOptions(
                     index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
                 type.setDimensions(0, 0)
                 type.setStored(True)
                 doc.add(document.Field(
-                    point.name(), value, type))
+                    point.name(), v, type))
                 # doc.add(document.FloatDocValuesField(key, float(value)))
                 # type = document.FieldType()
                 # type.setIndexOptions(

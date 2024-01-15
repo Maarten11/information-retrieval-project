@@ -17,20 +17,21 @@ def get_searcher(index_path: str):
 
 def query_ingredients(
     searcher, include: list[str], exclude: list[str] = [],
-    duration_upper: int | None = None, limit: int = 10
+    duration_upper: int | None = None, rating_lower: int = 0, limit: int = 10
 ):
     assert lucene.getVMEnv() or lucene.initVM()
     env = lucene.getVMEnv()
     env.attachCurrentThread()
 
-    query = create_ingredient_query(include, exclude, duration_upper)
+    query = create_ingredient_query(
+        include, exclude, duration_upper, rating_lower)
 
     hits = searcher.search(query, limit).scoreDocs
     return hits
 
 
 def create_ingredient_query(
-    include: list[str], exclude: list[str], duration_upper: int | None
+    include: list[str], exclude: list[str], duration_upper: int | None, rating_lower: int = 0
 ):
     assert lucene.getVMEnv() or lucene.initVM()
     env = lucene.getVMEnv()
@@ -63,9 +64,11 @@ def create_ingredient_query(
         return ingredients_query
 
     dur_query = IntPoint.newRangeQuery("CookTime", 0, duration_upper)
+    rating_query = IntPoint.newRangeQuery("Rating", rating_lower, 5)
 
     query_builder = search.BooleanQuery.Builder()
     query_builder.add(dur_query, search.BooleanClause.Occur.FILTER)
+    query_builder.add(rating_query, search.BooleanClause.Occur.FILTER)
     query_builder.add(ingredients_query, search.BooleanClause.Occur.MUST)
     query = query_builder.build()
 
