@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage{amsmath}
 
 \newcommand{\documentTitle}{Information Retrieval Project 2023-2024}
 
@@ -56,15 +57,30 @@ $$RSV_d=\displaystyle\sum_{t\in q}\log \frac{N}{df_t}$$
 Next it improves upon this simple scoring by taking into account the term
 frequency and document length.
 $$RSV_d=\displaystyle\sum_{t\in q}\log \left(\frac{N}{df_t}\right) \frac{(k_1 + 1) tf_{td}}{k_1((1 - b) + b \cdot (L_d/L_{ave}))+tf_{td}}$$
-Where \begin{enumerate}
+Where \begin{itemize}
     \item $tf_{td}$: term frequency in document $d$
     \item $L_d\ (L_{ave})$: length of document $d$ (average document length in the whole collection)
     \item $k_1$: tuning parameter controlling the document term frequency scaling
     \item $b$: tuning paramter controlling the scaling by document length
-\end{enumerate}
+\end{itemize}
 % TODO: is this still the case?
 The default BM25Similarity implementation in lucene uses $k_1 = 1.2$ and $b=0.75$.
-We changed this to have $b=1$.
+We tested this to have different values for $b$ to try and better hold into account
+the amount of matched ingredients compared to the total amount of ingredients.
+This is because we wanted the program to rank recipes for which all ingredients are
+given by the user higher than recipes for which some ingredients are missing.
+\\~\\
+We also experimented with using lucene's \texttt{Vector Space Model} algorithm.
+\subsubsection{VSM in Lucene}
+$$score(q,d) = \text{coord}(q,d) \cdot \text{queryNorm}(q) \displaystyle \sum_{t\in q}\left(tf_{td} \cdot idf_t^2 \cdot boost_t \cdot \text{norm}(t,d)\right)$$
+Where \begin{itemize}
+    \item coord: the number of terms of the query found in the document
+    \item queryNorm: to compare across queries
+    \item $tf$: default normalization of term frequency with square root
+    \item $boost$: user specified boost for terms
+    \item norm: normalization
+\end{itemize}
+
 
 \subsection{Topics seen in class}
 \begin{itemize}
@@ -73,6 +89,7 @@ We changed this to have $b=1$.
     \item Ranked Retrieval
     \item Inverted index % TODO: remove?
     \item Okapi BM25 model
+    \item Vector Space Model in Lucene
 \end{itemize}
 
 \section{Implementation details}
