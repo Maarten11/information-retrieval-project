@@ -83,20 +83,6 @@ def search_ingredients():
 
     hits = search.query_ingredients(
         searcher, include, exclude, duration, rating)
-    # storedFields = searcher.storedFields()
-    # results = []
-    # for hit in hits:
-    #     hitDoc = storedFields.document(hit.doc)
-    #     print(hitDoc.get("Name"))
-    #     print(hit.score, hitDoc.getValues("RecipeIngredientParts"))
-    #     recipe = {}
-    #     for field in hitDoc.getFields():
-    #         name = field.name()
-    #         value = hitDoc.getValues(name)[0]
-    #         if util.COLUMNS[name] == list and name != 'Images':
-    #             value = value.split("., ")
-    #         recipe[field.name()] = value
-    #     results.append(recipe)
     results = util.hits_to_json_response(searcher, hits)
 
     print(results, type(results), flush=True)

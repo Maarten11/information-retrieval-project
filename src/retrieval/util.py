@@ -52,9 +52,10 @@ def hits_to_json_response(searcher, hits) -> list:
 
 
 def pt_time_to_seconds(pt_time: str) -> float:
+    # Reference https://arrow.apache.org/docs/python/generated/pyarrow.parquet.read_table.html
     return isodate.parse_duration(pt_time).total_seconds()
 
-# Using this function to get th analyzer allows easily changing the analyzer
+# Using this function to get the analyzer allows easily changing the analyzer
 # used for the project.
 
 
