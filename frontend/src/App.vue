@@ -93,7 +93,7 @@
 <template>
 	<div class="grid grid-rows-[auto,1fr] min-h-full w-full">
 		<h1 class="text-3xl mb-10 text-center">Recipe Searcher</h1>
-		<div class="h-full w-full grid grid-cols-[25vw,auto] gap-10">
+		<div class="h-full w-full grid grid-cols-[auto,1fr] gap-10">
 			<aside class="h-full border-r-[1px] pe-10 border-white">
 				<div class="sticky top-5 left-0">
 					<!-- <button -->
@@ -123,12 +123,18 @@
 								Ingredients
 							</label>
 							<input type="text" id="to-include" v-model="include" />
+							<span class="block text-xs pt-1 italic">
+								Provide a comma seperated list of ingredients
+							</span>
 						</div>
 						<div>
 							<label class="text-sm pb-1 block" for="to-exclude">
 								Ingredients to exclude
 							</label>
 							<input type="text" id="to-exclude" v-model="exclude" />
+							<span class="block text-xs pt-1 italic">
+								Provide a comma seperated list of ingredients
+							</span>
 						</div>
 						<div>
 							<label class="text-sm pb-1 block" for="rating">
@@ -184,8 +190,13 @@
 							<img
 								class="w-full h-[30vh] object-cover"
 								:src="selectedRecipe?.Images ?? imgUrl" />
-							<button class="absolute top-0 left-0" @click="select(undefined)">
-								x
+							<button
+								class="absolute top-0 left-0 bg-transparent"
+								@click="select(undefined)">
+								<img
+									class="h-8 w-8 bg-white rounded-2xl"
+									src="./assets/close-button-svgrepo-com.svg"
+									alt="" />
 							</button>
 							<div class="grid p-10 grid-rows-[auto,1fr] gap-10">
 								<h2 class="text-3xl">{{ selectedRecipe?.Name }}</h2>
