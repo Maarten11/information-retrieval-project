@@ -25,9 +25,11 @@ def search_recipes():
     include = data.get("include", "[]")
     print(include, flush=True)
     if not name and include == "[]":
-        return "Provide at least a name or an ingredient", 400
+        return "Provide at least a name or an included ingredient", 400
 
     include = json.loads(include)
+    if len(include) == 1 and not include[0]:
+        return "Include has a wrong format", 400
     exclude = json.loads(data.get("exclude", "[]"))
     duration = data.get("duration", None)
     if duration is not None:
