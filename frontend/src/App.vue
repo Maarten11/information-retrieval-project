@@ -25,8 +25,8 @@
 		const form = new FormData();
 		form.append("include", JSON.stringify(includeList));
 		form.append("exclude", JSON.stringify(excludeList));
-		form.append("duration", duration.value.toString());
-		form.append("rating", rating.value.toString());
+		form.append("duration", duration.value);
+		form.append("rating", rating.value);
 		const request = await fetch("http://localhost:8000/search_ingredients", {
 			body: form,
 			method: "POST",
@@ -44,11 +44,11 @@
 
 	const include = ref("");
 	const exclude = ref("");
-	const rating = ref(0);
-	const duration = ref(0);
+	const rating = ref("0");
+	const duration = ref("0");
 	// Visualize the duration
 	const durationPT = computed(() =>
-		new Date((duration?.value ?? 0) * 1000)
+		new Date(Number.parseInt(duration?.value ?? 0) * 1000)
 			.toISOString()
 			.slice(11, 16)
 			.replace(":", "H")
