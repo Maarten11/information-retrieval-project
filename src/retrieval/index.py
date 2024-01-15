@@ -94,34 +94,10 @@ def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str) ->
             elif column_mapping[key] == "float":
                 if np.isnan(value):
                     continue
-                # test = document.FloatPoint(key, 0.0)
-                # new_type = document.FieldType(test.fieldType())
-                # new_type.setIndexOptions(
-                #     index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
-                # new_type.setStored(True)
                 v = math.floor(value + 0.5)
-                point = document.IntPoint(key, v)
-                type = document.FieldType(point.fieldType())
-                type.setIndexOptions(
-                    index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
-                type.setDimensions(0, 0)
-                type.setStored(True)
-                doc.add(document.Field(
-                    point.name(), v, type))
-                # doc.add(document.FloatDocValuesField(key, float(value)))
-                # type = document.FieldType()
-                # type.setIndexOptions(
-                #     index.IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
-                # type.setStored(True)
-                # doc.add(document.Field(key, str(value), new_type))
-                # doc.add(document.TextField(
-                #     key, str(value), document.Field.Store.YES))
-                # doc.add(document.Field(key, str(value),
-                #         document.FloatRange(key, [0.0], [5.0])))
-                # v = int(float(value) * 1000)
-                # doc.add(document.IntPoint(key, v))
-                # doc.add(document.Field(
-                #     key, value, document.StringField.TYPE_STORED))
+                doc.add(document.IntPoint(key, v))
+                doc.add(document.Field(key, v,
+                        document.StringField.TYPE_STORED))
             else:
                 doc.add(document.Field(
                     key, value, document.TextField.TYPE_STORED))
