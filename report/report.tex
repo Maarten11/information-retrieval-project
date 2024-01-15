@@ -148,7 +148,78 @@ that we could use, so we decided to scrap lupyne and use pylucene.
 
 \section{Evaluation criteria to evaluate performance}
 
+To evaluate the performance of our implementation,
+we chose to use a qualitative evaluation approach.
+The evaluation is done by carefully constructing some 'query' statements
+which where executed on our search engine.
+The results of these queries where then evaluated by checking whether they
+satisfied our expectations and the limits of the query.
+For this we used some extra self generated data together with the dataset.
+This extra data makes that we are sure that there are recipes for certain queries.
+\\~\\
+This manual evaluation approach was chosen because of two reasons.
+Firstly, the indexing and searching is done by lucene.
+The quality of the retrieval is probably tested quite well.
+The only real impact we have is changing our queries and changing the way
+documents are scored.
+These changes are quite easy to test manually.
+Secondly, our dataset does not have any ground truth labels.
+Using such labels for our project would not make a lot of sense.
+The results of a query can simply be checked by looking at the ingredients
+specified in the query and those of the results.
+Using other datasets for testing would also not really make sense,
+as these datasets may have completely different characteristics.
+\\~\\
+Thus for evaluating the results of our implementation,
+we looked at the results of the chosen queries and checked whether they
+matched our intentions.
+For ingredients, this is as simple as checking whether the specified
+ingredients are present in the results.
+We also decided that recipes with less extra ingredients should be ranked
+better than those with a bunch of extra ingredients.
+This follows our intended use case of looking for recipes that use the
+ingredients that you have available.
+The other parameters should simply be satisfied by the results.
+For example, if we want to exclude a certain ingredient,
+none of the results should contain this ingredient.
+The same thus follows for specifying a minimum rating or a maximum duration.
+
 \section{Quantitative results from the evaluation}
+
+The \texttt{src/test.py} script runs our chosen queries on the extended dataset.
+The results of each query are printed to the console.
+A limit of 15 results is set for the queries,
+so that there are enough results to evaluate the query,
+but not too many so that checking them is still manageable.
+\\~\\
+We first tested these queries with the default \texttt{BM25Similarity} implementation.
+While this gave recipes that satisfied the queries,
+we noticed that the results where not always ranked as we would want.
+When searching for recipes with certain ingredients,
+a lot of the results had a lot of extra ingredients which were not specified.
+It was difficult to find recipes using only the ingredients that were specified.
+Changing to the Vector Space Model for scoring gave better results in this regard.
+Searching for recipes with certain ingredients now manly results in recipes
+that only use these given ingredients.
+Results with extra ingredients mainly happen when the search space becomes
+narrower by for example also searching for recipes with a certain name.
+\\~\\
+Querying for a certain duration, rating or excluding ingredients also seems to work.
+All results for these queries satisfy the constraints.
+\\~\\
+There are however some irelevant results when searchign for recipes with
+a certain name or with a certain ingredient.
+When searching for recipes with 'glass milk' in their name,
+some of the results do not contain any of these terms.
+They do however contain a term that is similar to milk or glass.
+This happens because we use fuzzy matching on the terms to allow for spelling mistakes.
+If a document contains a term that is similar to the searched term,
+it may thus be returned as a result.
+This can also be seen when searching for recipes with 'tomato' as ingredient.
+A lot of the results contain a spelling variant of 'tomato' and of 'potato'.
+This happens because 'potato' is similar enough to 'tomato'.
+It is thus counted when scoring the recipe and might get a higher score than
+a recipe which does not contain 'potato' but does contain 'tomato'.
 
 \section{Limitations}
 \subsection{Ingredient autocompletion}
