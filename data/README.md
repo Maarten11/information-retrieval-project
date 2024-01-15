@@ -14,14 +14,18 @@ The expected columns of a used dataset are given below.
 Any additional dataset should thus have at least these columns.
 Additional columns will be ignored.
 
-| **Name**              | **Type**       |
-| --------------------- | -------------- |
-| Name                  | _string_       |
-| RecipeId              | _int_          |
-| RecipeIngredientParts | _list: string_ |
-| RecipeInstructions    | _list: string_ |
-| Images                | _list: string_ |
-| CookTime              | _datetime_     |
+| **Name**              | **Type**               |
+| --------------------- | ---------------------- |
+| **_Recipe files_**    |                        |
+| Name                  | _string_               |
+| RecipeId              | _int_                  |
+| RecipeIngredientParts | _list: string_         |
+| RecipeInstructions    | _list: string_         |
+| Images                | _list: string_         |
+| CookTime              | _string(iso duration)_ |
+| **_Review files_**    |                        |
+| RecipeId              | _int(maps to Recipes)_ |
+| Rating                | _float \| int_         |
 
 ## Datasets
 
