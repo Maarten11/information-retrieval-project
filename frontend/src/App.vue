@@ -40,6 +40,38 @@
 		selectedRecipe.value = recipe;
 	};
 
+	const searchRecipes = async () => {
+		const includeList = !!include.value.length
+			? include.value.split(",").map((s) => s.trim())
+			: [];
+		const excludeList = !!exclude.value.length
+			? exclude.value.split(",").map((s) => s.trim())
+			: [];
+		const form = new FormData();
+		if (!!name.value.length) {
+			form.append("name", name.value);
+		}
+		if (!!include.value.length) {
+			form.append("include", JSON.stringify(includeList));
+		}
+		if (!!exclude.value.length) {
+			form.append("exclude", JSON.stringify(excludeList));
+		}
+		if (duration.value != "0") {
+			form.append("duration", duration.value);
+		}
+		if (rating.value != "0") {
+			form.append("rating", rating.value);
+		}
+		recipes.value = null;
+		const request = await fetch("http://localhost:8000/search", {
+			body: form,
+			method: "POST",
+		});
+		const response = await request.json();
+		recipes.value = response;
+	};
+
 	const recipesChosen = computed(() => !!(recipes.value?.length ?? 0));
 
 	const include = ref("");
@@ -64,24 +96,28 @@
 		<div class="h-full w-full grid grid-cols-[25vw,auto] gap-10">
 			<aside class="h-full border-r-[1px] pe-10 border-white">
 				<div class="sticky top-5 left-0">
+					<!-- <button -->
+					<!-- 	class="mx-auto inline-block mb-5" -->
+					<!-- 	:disabled="!name.length" -->
+					<!-- 	@click="searchRecipe"> -->
+					<!-- 	Search by name -->
+					<!-- </button> -->
+					<!-- <div> -->
+					<!-- 	<label class="text-sm pb-1 block" for="name">Name</label> -->
+					<!-- 	<input type="text" id="name" v-model="name" /> -->
+					<!-- </div> -->
+					<!-- <hr class="my-5" /> -->
 					<button
 						class="mx-auto inline-block mb-5"
-						:disabled="!name.length"
-						@click="searchRecipe">
-						Search by name
-					</button>
-					<div>
-						<label class="text-sm pb-1 block" for="name">Name</label>
-						<input type="text" id="name" v-model="name" />
-					</div>
-					<hr class="my-5" />
-					<button
-						class="mx-auto inline-block mb-5"
-						:disabled="!include.length"
-						@click="searchIngredients">
-						Search by ingredients
+						:disabled="!include.length && !name.length"
+						@click="searchRecipes">
+						Search
 					</button>
 					<div class="grid gap-5">
+						<div>
+							<label class="text-sm pb-1 block" for="name">Name</label>
+							<input type="text" id="name" v-model="name" />
+						</div>
 						<div>
 							<label class="text-sm pb-1 block" for="to-include">
 								Ingredients
