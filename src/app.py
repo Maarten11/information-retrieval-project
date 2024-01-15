@@ -24,7 +24,6 @@ def search_recipes():
 
     name = data.get("name", "")
     include = data.get("include", "[]")
-    print(include, flush=True)
     if not name and include == "[]":
         return "Provide at least a name or an included ingredient", 400
 
@@ -39,7 +38,6 @@ def search_recipes():
     if rating is not None:
         rating = int(rating)
 
-    print(name, include, exclude, duration, rating, flush=True)
     searcher, reader = search.get_searcher(INDEX_DIR)
     hits = search.query_recipes(
         searcher, name, include, exclude, duration, rating, limit=10)
@@ -85,14 +83,12 @@ def search_ingredients():
         searcher, include, exclude, duration, rating)
     results = util.hits_to_json_response(searcher, hits)
 
-    print(results, type(results), flush=True)
-
     reader.close()
     return results
 
 
-FORCE_REINDEX = True
-# FORCE_REINDEX = False
+# FORCE_REINDEX = True
+FORCE_REINDEX = False
 
 if __name__ == "__main__":
     lucene.initVM()

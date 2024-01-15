@@ -138,13 +138,188 @@ using a docker image. We are using an underlying search library called lucene,
 that was written in Java and thus requires some setup to work properly with
 python. This setup is facilitated by using the docker image,
 in combination with docker compose.
+\subsection{compose}
+\begin{lstlisting}
+services:
+  app:
+    build: ./src
+    volumes:
+      - "./src:/usr/src/app"
+      - "./data/:/usr/src/data"
+    ports:
+      - "8000:5000"
+\end{lstlisting}
+\subsection{Docker}
+\begin{lstlisting}
+FROM coady/pylucene
+
+WORKDIR /usr/src/app
+
+COPY ./requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
+
+CMD [ "python", "./app.py" ]
+\end{lstlisting}
 To get the project to work with python, we used a python binding of the Java lucene
-library to allow python developers to access the features of lucene in python.
+library to allow python developers to access the features of lucene in python. This
+binding is called pylucene and is bundled in the Docker image as seen above.
 \\~\\
 We also briefly experimented with a python wrapper for the pylucene project, named lupyne.
 However, we quickly noticed that this would limit the functionality of lucene
 that we could use, so we decided to scrap lupyne and use pylucene.
+\subsection{Web server}
+For our web server, we used Flask. This allowed us to easily expose the endpoints
+of our API. We created an endpoint \texttt{/search} that can be accessed via
+a \texttt{POST} request.
+\subsubsection{Search endpoint}
+\begin{lstlisting}[language=Python]
+@app.route("/search", methods=["POST"])
+def search_recipes():
+    data = request.form
 
+    name = data.get("name", "")
+    include = data.get("include", "[]")
+    if not name and include == "[]":
+        return "Provide at least a name or an included ingredient", 400
+
+    include = json.loads(include)
+    if len(include) == 1 and not include[0]:
+        return "Include has a wrong format", 400
+    exclude = json.loads(data.get("exclude", "[]"))
+    duration = data.get("duration", None)
+    if duration is not None:
+        duration = int(duration)
+    rating = data.get("rating", None)
+    if rating is not None:
+        rating = int(rating)
+
+    searcher, reader = search.get_searcher(INDEX_DIR)
+    hits = search.query_recipes(
+        searcher, name, include, exclude, duration, rating, limit=10)
+
+    results = util.hits_to_json_response(searcher, hits)
+
+    reader.close()
+    return results
+\end{lstlisting}
+This endpoint accepts a javascript Form, containing the different parameters
+that can be used for the search query. As can be seen in the code above,
+the search required there to be at least a name or included ingredients to search.
+This is also prevented in the UI.
+\\~\\
+In this endpoint, the parameters mentioned above are extracted from the form,
+and we check which parameters are present. Next, we use these parameters
+to query the recipes.
+Finally, we parse the received hits to a jsonify-able format and return them.
+
+\subsection{Indexing}
+In \texttt{/retrieval/index.py}, we handle the entire dataset. Here, we make a
+document per entry in the dataset and put each attribute in its proper field.
+These fields allow for the searcher to search the dataset more efficiently.\\~\\
+Our recipes were stored in a \texttt{recipes.parquet} file and the reviews were
+stored in a seperate \texttt{reviews.parquet} file.
+\subsubsection{Parse Parquet files}
+Since we used parquet files for our dataset, we needed to extract this data before
+we were able to index the different entries. We used the \texttt{pyarrow} package
+for this. There are utility functions provided to easily extract data from
+parquet files and return them as a \texttt{pandas} Dataframe.
+\begin{lstlisting}[language=Python]
+def pq_to_df(path: str, columns: list[str]) -> pd.DataFrame:
+    return pq.read_table(path, columns=columns).to_pandas()
+\end{lstlisting}
+We wanted to have ratings for the recipes as well, to give the users to filter
+the recipes on quality as well. Because of this, we needed to join
+the data from both files and put them into one \texttt{Dataframe}, so we
+could index them together.\\~\\
+This happens in the following function:
+\begin{lstlisting}[language=Python]
+recipes = util.pq_to_df(DATA_DIR + "recipes.parquet",
+            list(util.RECIPE_COLUMNS.keys()))
+ratings = util.pq_to_df(DATA_DIR + "reviews.parquet",
+            list(util.RATINGS_COLUMNS.keys())).groupby([util.ID_COLUMN]).mean()
+
+combined = recipes.join(ratings, on=util.ID_COLUMN, how="inner")
+index.index_data(combined, util.COLUMNS, INDEX_DIR)
+\end{lstlisting}
+Next, we could index the combined data.
+
+\subsubsection{Indexing}
+\begin{lstlisting}[language=Python]
+def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str):
+    """
+    Generates an index for the provided data
+    Note: the data should be stored in a parquet file
+
+    :param path: string to the parquet file
+    """
+    assert lucene.getVMEnv() or lucene.initVM()
+    env = lucene.getVMEnv()
+    env.attachCurrentThread()
+    print(
+        f"Writing data to index at '{index_path}'",
+        flush=True
+    )
+
+    # NOTE: Use the english analyzer to enable stemming.
+    #       This can be usefull for searching the ingredients.
+    #       'apples' and 'apple' will both match to 'apple'.
+    analyzer = get_analyzer()
+
+    # Directory to store the index
+    directory = get_index_dir(index_path)
+    config = index.IndexWriterConfig(analyzer)
+    config.setSimilarity(get_similarity())
+    iwriter = index.IndexWriter(directory, config)
+
+    for row in pd_table.itertuples():
+        # Convert to dict
+        recipe: dict = row._asdict()
+        doc = document.Document()
+        for key, value in recipe.items():
+            # Skip index
+            if key == 'Index':
+                continue
+            if value is None:
+                # TODO: what to do with missing data?
+                continue
+            elif key == "Images":
+                if len(value):
+                    doc.add(document.Field(
+                        key, list(value)[0], document.TextField.TYPE_STORED
+                    ))
+            elif column_mapping[key] == "list":
+                new_value = "., ".join(value)
+                doc.add(document.Field(
+                        key, new_value, document.TextField.TYPE_STORED))
+            elif column_mapping[key] == "int":
+                # NOTE: unused
+                doc.add(document.IntPoint(key, int(value)))
+                doc.add(document.Field(
+                    key, value, document.StringField.TYPE_STORED))
+            elif column_mapping[key] == "datetime":
+                new_value = int(pt_time_to_seconds(value))
+                doc.add(document.IntPoint(key, new_value))
+                doc.add(document.Field(key, new_value,
+                        document.StringField.TYPE_STORED))
+            elif column_mapping[key] == "float":
+                if np.isnan(value):
+                    continue
+                v = math.floor(value + 0.5)
+                doc.add(document.IntPoint(key, v))
+                doc.add(document.Field(key, v,
+                        document.StringField.TYPE_STORED))
+            else:
+                doc.add(document.Field(
+                    key, value, document.TextField.TYPE_STORED))
+        iwriter.addDocument(doc)
+
+    print(f"added to index", flush=True)
+    iwriter.close()
+    directory.close()
+
+\end{lstlisting}
 
 \section{Evaluation criteria to evaluate performance}
 
@@ -185,6 +360,7 @@ we figured this would not be a common use case.
     \item \url{https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch}
     \item \url{https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript}
     \item \url{https://arrow.apache.org/docs/python/generated/pyarrow.parquet.read_table.html}
+    \item \url{https://flask.palletsprojects.com/en/3.0.x/}
 \end{itemize}
 
 \end{document}
