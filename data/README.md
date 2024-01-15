@@ -37,4 +37,4 @@ For the project we used following datasets:
 | test_data                      | Self generated                                                               | :white_check_mark: |
 
 The test_data dataset is self generated.
-It can be regenerated with the [gen_test_data.py](./src/gen_test_data.py) script.
+It can be regenerated with the [gen_test_data.py](../src/gen_test_data.py) script.
