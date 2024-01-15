@@ -17,6 +17,10 @@ Requirements:
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - [npm](https://www.npmjs.com/package/npm)
 
+If you want to run the project 'locally' without using docker,
+PyLucene should be installed in your environment.
+Instructions for this can be found [here](https://lucene.apache.org/pylucene/install.html).
+
 ### Datasets
 
 For an explanation of the needed data,
@@ -24,11 +28,24 @@ look in the [data directory](./data/README.md).
 
 ## Running the project
 
+The data should first properly be set up as explained [here](./data/README.md).
+
 ### Webserver backend
 
 ```
 docker compose build
 docker compose up
+```
+
+#### Locally
+
+For running the backend without docker use following commands.
+Note that PyLucene must be properly set up.
+
+```
+cd src
+pip install -r requirements.txt
+python app.py
 ```
 
 ### Frontend

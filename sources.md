@@ -1,0 +1,6 @@
+- https://stackoverflow.com/a/55477743
+- https://coady.github.io/lupyne/examples/
+- https://lucene.apache.org/core/9_9_1/core/index.html
+- https://www.baeldung.com/lucene-analyzers
+- https://lucene.apache.org/core/7_0_1/core/org/apache/lucene/analysis/package-summary.html
+- https://stackoverflow.com/questions/64714307/how-to-use-queryparser-for-lucene-range-queries-intpoint-longpoint
