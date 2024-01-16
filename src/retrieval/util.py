@@ -35,7 +35,7 @@ def pq_to_df(path: str, columns: list[str]) -> pd.DataFrame:
     return pq.read_table(path, columns=columns).to_pandas()
 
 
-def hits_to_json_response(searcher, hits) -> list:
+def hits_to_json_response(searcher, hits, requested_ingredients: list[str] = []) -> list:
     storedFields = searcher.storedFields()
     results = []
     for hit in hits:
@@ -47,6 +47,15 @@ def hits_to_json_response(searcher, hits) -> list:
             if COLUMNS[name] == "list" and name != IMAGES_COLUMN:
                 value = value.split("., ")
             recipe[field.name()] = value
+
+        # Add missing ingredients
+        if requested_ingredients:
+            request: set[str] = set(requested_ingredients)
+            recipe_ingredients: set[str] = set(recipe[INGREDIENT_COLUMN])
+            test = recipe_ingredients.difference(request)
+            print(test, recipe_ingredients, requested_ingredients, flush=True)
+            recipe["ExtraIngredients"] = list(test)
+
         results.append(recipe)
 
     return results

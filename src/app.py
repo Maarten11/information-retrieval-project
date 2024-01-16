@@ -42,7 +42,7 @@ def search_recipes():
     hits = search.query_recipes(
         searcher, name, include, exclude, duration, rating, limit=10)
 
-    results = util.hits_to_json_response(searcher, hits)
+    results = util.hits_to_json_response(searcher, hits, include)
 
     reader.close()
     return results
@@ -81,7 +81,7 @@ def search_ingredients():
 
     hits = search.query_ingredients(
         searcher, include, exclude, duration, rating)
-    results = util.hits_to_json_response(searcher, hits)
+    results = util.hits_to_json_response(searcher, hits, include)
 
     reader.close()
     return results
