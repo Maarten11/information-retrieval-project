@@ -44,7 +44,9 @@ Note that PyLucene must be properly set up.
 
 ```
 cd src
+# Install requirements
 pip install -r requirements.txt
+# Run webserver
 python app.py
 ```
 
@@ -57,4 +59,24 @@ npm i
 
 # Run the frontend (in dev mode)
 npm run dev
+```
+
+## Quantitative Evaluation
+
+For the evaluation of the project, a quantitative approach is used.
+This means that we carefully chose some queries to execute on our dataset
+and manually evaluate the relevance of the returned results.
+This was done using the [src/test.py](./src/test.py) script.
+The chosen queries can be found inside this script.
+
+To run the evaluation script yourself, use following instructions.  
+**NOTE:** _no docker container is included for this script.
+It should be run locally with PyLucene installed or add it to a container yourself._
+
+```bash
+cd src
+# Install requirements
+pip install -r requirements.txt
+python gen_test_data.py
+python test.py
 ```
