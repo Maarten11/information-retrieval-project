@@ -54,6 +54,8 @@
 \begin{document}
 \maketitle
 
+\section{Project Link}
+\url{https://github.com/Maarten11/information-retrieval-project}
 \section{Problem Definition}
 We made a search engine that allows users to search through over $500.000$
 recipes and close to $1.500.000$ reviews, using different parameters, as
@@ -91,6 +93,7 @@ rule out certain recipes without having to look through them first.
 Our solution makes use of the Apache Lucene project. This is an open-source
 search software that implements most of the widely used Information Retrieval
 algorithms. One of the algorithms used is the BestMatch25 algorithm.
+\newpage
 \subsubsection{BestMatch25}
 The BestMatch25 is a probabilistic model that aims to improve on the basic
 Binary Independence Model (BIM). It does this by first using a simple scoring
@@ -180,6 +183,16 @@ For our web server, we used Flask. This allowed us to easily expose the endpoint
 of our API. We created an endpoint \texttt{/search} that can be accessed via
 a \texttt{POST} request.
 \subsubsection{Search endpoint}
+This endpoint accepts a javascript Form, containing the different parameters
+that can be used for the search query. As can be seen in the code above,
+the search required there to be at least a name or included ingredients to search.
+This is also prevented in the UI.
+\\~\\
+In this endpoint, the parameters mentioned above are extracted from the form,
+and we check which parameters are present. Next, we use these parameters
+to query the recipes.
+Finally, we parse the received hits to a jsonify-able format and return them.
+\newpage
 \begin{lstlisting}[language=Python]
 @app.route("/search", methods=["POST"])
 def search_recipes():
@@ -210,16 +223,6 @@ def search_recipes():
     reader.close()
     return results
 \end{lstlisting}
-This endpoint accepts a javascript Form, containing the different parameters
-that can be used for the search query. As can be seen in the code above,
-the search required there to be at least a name or included ingredients to search.
-This is also prevented in the UI.
-\\~\\
-In this endpoint, the parameters mentioned above are extracted from the form,
-and we check which parameters are present. Next, we use these parameters
-to query the recipes.
-Finally, we parse the received hits to a jsonify-able format and return them.
-\newpage
 \subsection{Indexing}
 In \texttt{/retrieval/index.py}, we handle the entire dataset. Here, we make a
 document per entry in the dataset and put each attribute in its proper field.
