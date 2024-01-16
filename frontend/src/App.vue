@@ -7,7 +7,6 @@
 
 	const selectedRecipe: Ref<IRecipe | undefined> = ref(undefined);
 	const select = (recipe: IRecipe | undefined) => {
-		console.log("Selecting");
 		selectedRecipe.value = recipe;
 	};
 

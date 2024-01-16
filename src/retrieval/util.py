@@ -52,9 +52,8 @@ def hits_to_json_response(searcher, hits, requested_ingredients: list[str] = [])
         if requested_ingredients:
             request: set[str] = set(requested_ingredients)
             recipe_ingredients: set[str] = set(recipe[INGREDIENT_COLUMN])
-            test = recipe_ingredients.difference(request)
-            print(test, recipe_ingredients, requested_ingredients, flush=True)
-            recipe["ExtraIngredients"] = list(test)
+            recipe["ExtraIngredients"] = list(
+                recipe_ingredients.difference(request))
 
         results.append(recipe)
 
