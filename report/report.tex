@@ -5,6 +5,13 @@
 
 \newcommand{\documentTitle}{Information Retrieval Project 2023-2024}
 \usepackage{xcolor}
+% \newcommand\subsubsubsection{\@startsection{paragraph}{4}{\z@}%
+%             {-2.5ex\@plus -1ex \@minus -.25ex}%
+%             {1.25ex \@plus .25ex}%
+%             {\normalfont\normalsize\bfseries}}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -121,7 +128,6 @@ Where \begin{itemize}
 \small
 \textit{Adapted from the lecture slides}\\~\\
 \normalsize
-
 \subsection{Topics seen in class}
 \begin{itemize}
     \item Edit distance for spelling correction
@@ -213,7 +219,7 @@ In this endpoint, the parameters mentioned above are extracted from the form,
 and we check which parameters are present. Next, we use these parameters
 to query the recipes.
 Finally, we parse the received hits to a jsonify-able format and return them.
-
+\newpage
 \subsection{Indexing}
 In \texttt{/retrieval/index.py}, we handle the entire dataset. Here, we make a
 document per entry in the dataset and put each attribute in its proper field.
@@ -246,6 +252,30 @@ index.index_data(combined, util.COLUMNS, INDEX_DIR)
 Next, we could index the combined data.
 
 \subsubsection{Indexing}
+The indexing happens in \texttt{retrieval/index.py}. Here, the \texttt{index\_data}
+function accepts a \texttt{Dataframe}, a \texttt{column mapping} and an \texttt{index path}.
+The dataframe contains the data that you wish to index, and the column mapping
+is used to figure out what field types should be used. This way, we can use
+the lucene built-in \texttt{IntPoint} field to allow for easy range queries.
+All textvariables are also stored as strings, so that they are returned when
+a document is a "hit" for a query.\\~\\
+Both the duration and the ingredients list receive a special treatment here:
+\subsubsubsection{Duration}
+The duration is specified in the "Period of Time" time format. Since we want
+to allow for range queries, using the \texttt{IntPoint} field, we transformed
+all duration fields to their duration in seconds.
+\begin{lstlisting}[language=Python]
+def pt_time_to_seconds(pt_time: str) -> float:
+    return isodate.parse_duration(pt_time).total_seconds()
+\end{lstlisting}
+\subsubsubsection{Ingredients list}
+For the ingredients list, we needed to store them as a single string to allow
+the searcher to match all ingredients. However, we also wanted to be able to
+unwrap them to a list again later on. For this reason we made the list of
+ingredients into a string using \texttt{"., ".join(value)}. Here, \texttt{"., "}
+is a string that does not normally occur which allows us to split the string
+to a list again afterwards.
+\newpage
 \begin{lstlisting}[language=Python]
 def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str):
     """
