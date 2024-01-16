@@ -323,6 +323,61 @@ def index_data(pd_table: pd.DataFrame, column_mapping: dict, index_path: str):
 
 \subsection{Search}
 
+Searching for relevant documents (recipes) is handled by lucene.
+According to the lucene documentation for the TFIDFSimilarity class,
+documents are first 'approved' based on a Bolean model.
+The approved documents are then scored by default using the BM25 algorithm.
+To approve documents, a query must be constructed.
+These queries specify how the documents are searched and the terms matched.
+\\~\\
+We allow searching recipes based on following parameters:
+\begin{itemize}
+    \item \textit{name}: (Part of) The name of the recipe.
+    \item \textit{include}: A list of ingredients that the recipe uses.
+    \item \textit{exclude}: A list of ingredients that the recipe may not use.
+    \item \textit{duration}: The maximum duration to create the recipe in seconds.
+    \item \textit{rating}: The minimum average rating given to the recipe by users.
+\end{itemize}
+The recipe name is searched using a phrase query.
+This is because a name somewhat represents a phrase.
+There is some seperation allowed between the terms in the name.
+This allows matching recipes that do not completely follow the name term order.
+\\~\\
+All included ingredients are combined into a boolean query with the OR operator.
+Using OR allows matching of recipes that do not contain all ingredients.
+This is allowed because we do not necessarily want to use all ingredients.
+\\~\\
+Similarly to the included ingredients, all excluded ingredients are combined in
+a boolean query with the OR operator.
+This combined query is then negated using a NOT operator (excluded).
+Combining the excluded ingredients with OR also allows matching on a single
+ingredient in the list.
+We don't just want to remove recipes containing all excluded ingredients,
+but also recipes containing any of the excluded ingredients.
+\\~\\
+Duration and rating are range queries.
+These are only used to filter the results and not for scoring.
+\\~\\
+All of these queries are then combined together.
+Both the name and the included ingredients queries should be included,
+while the excluded ingredients are excluded.
+As mentioned above, duration and rating simply function as an extra filter.
+\\~\\
+To allow some spelling mistakes, fuzzy matching is used for the terms in the
+name and included ingredients queries.
+This matching is done using the Levenshtein distance (lucene documentation).
+The default allowed distance is 2.
+To decrease the chance of wrong matches because of this fuzzy matching,
+the allowed distance of smaller terms is decreased.
+This is because there is less chance of a spelling mistake happening in one
+of these terms and there might be more terms 'close by'.
+\\~\\
+As mentioned in other parts of the report,
+we decided to use the Vector Space Model (ClassicSimilarity in lucene) for scoring
+the results.
+This seemed to give more desirable results according to our criteria.
+This choice is further explained in the Results section.
+
 \section{Evaluation criteria to evaluate performance}
 
 To evaluate the performance of our implementation,
