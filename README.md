@@ -30,6 +30,13 @@ look in the [data directory](./data/README.md).
 
 The data should first properly be set up as explained [here](./data/README.md).
 
+Please also note that each time your data changes (or on the first run),
+you should reconstruct the index. To achieve this, there is a
+`FORCE_REINDEX` variable provided in `app.py` which can be set
+to true to reconstruct the index.
+
+Once the index has been built, you can set this to `False` to speed up build times
+
 ### Webserver backend
 
 ```
@@ -69,7 +76,7 @@ and manually evaluate the relevance of the returned results.
 This was done using the [src/test.py](./src/test.py) script.
 The chosen queries can be found inside this script.
 
-To run the evaluation script yourself, use following instructions.  
+To run the evaluation script yourself, use following instructions.
 **NOTE:** _no docker container is included for this script.
 It should be run locally with PyLucene installed or add it to a container yourself._
 
@@ -79,4 +86,12 @@ cd src
 pip install -r requirements.txt
 python gen_test_data.py
 python test.py
+```
+Alternatively, using the docker container
+```bash
+docker compose build
+docker compose up
+docker compose exec -it app /bin/bash
+python3 gen_test_data.py
+python3 test.py
 ```

@@ -87,8 +87,8 @@ def search_ingredients():
     return results
 
 
-# FORCE_REINDEX = True
-FORCE_REINDEX = False
+FORCE_REINDEX = True
+# FORCE_REINDEX = False
 
 if __name__ == "__main__":
     lucene.initVM()

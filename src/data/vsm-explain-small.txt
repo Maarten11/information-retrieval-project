@@ -1,0 +1,72 @@
+Writing data to index at '../.test_index/'
+added to index
+
+########## Searching for ingredient: 'milk' ##########
+Glass of milk: 60, 5
+['milk']
+1.287682 = weight(RecipeIngredientParts:milk in 0) [ClassicSimilarity], result of:
+  1.287682 = score(freq=1.0), product of:
+    1.287682 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+      2 = docFreq, number of documents containing term
+      3 = docCount, total number of documents with field
+    1.0 = tf(freq=1.0), with freq of:
+      1.0 = freq, occurrences of term within document
+    1.0 = fieldNorm
+
+Suggary milk: 60, 2
+['milk', 'sugar']
+0.9105287 = weight(RecipeIngredientParts:milk in 1) [ClassicSimilarity], result of:
+  0.9105287 = score(freq=1.0), product of:
+    1.287682 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+      2 = docFreq, number of documents containing term
+      3 = docCount, total number of documents with field
+    1.0 = tf(freq=1.0), with freq of:
+      1.0 = freq, occurrences of term within document
+    0.70710677 = fieldNorm
+
+
+########## Searching for ingredient: 'milk', 'sugar' ##########
+Suggary milk: 60, 2
+['milk', 'sugar']
+1.8210574 = sum of:
+  0.9105287 = weight(RecipeIngredientParts:milk in 1) [ClassicSimilarity], result of:
+    0.9105287 = score(freq=1.0), product of:
+      1.287682 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        2 = docFreq, number of documents containing term
+        3 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  0.9105287 = weight(RecipeIngredientParts:sugar in 1) [ClassicSimilarity], result of:
+    0.9105287 = score(freq=1.0), product of:
+      1.287682 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        2 = docFreq, number of documents containing term
+        3 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Glass of milk: 60, 5
+['milk']
+1.287682 = sum of:
+  1.287682 = weight(RecipeIngredientParts:milk in 0) [ClassicSimilarity], result of:
+    1.287682 = score(freq=1.0), product of:
+      1.287682 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        2 = docFreq, number of documents containing term
+        3 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      1.0 = fieldNorm
+
+Cake: 1800, 3
+['eggs', 'flour', 'sugar', 'butter']
+0.643841 = sum of:
+  0.643841 = weight(RecipeIngredientParts:sugar in 2) [ClassicSimilarity], result of:
+    0.643841 = score(freq=1.0), product of:
+      1.287682 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        2 = docFreq, number of documents containing term
+        3 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.5 = fieldNorm
+

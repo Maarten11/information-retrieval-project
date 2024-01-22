@@ -3,7 +3,7 @@ import lucene
 import pandas as pd
 from java.io import File
 from org.apache.lucene import analysis, store
-from org.apache.lucene.search.similarities import ClassicSimilarity
+from org.apache.lucene.search.similarities import ClassicSimilarity, BM25Similarity
 from pyarrow import parquet as pq
 
 INGREDIENT_COLUMN = "RecipeIngredientParts"
@@ -77,3 +77,4 @@ def get_index_dir(path: str):
 
 def get_similarity():
     return ClassicSimilarity()
+    # return BM25Similarity()

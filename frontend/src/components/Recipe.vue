@@ -5,6 +5,7 @@
 		RecipeIngredientParts: Array<string>;
 		RecipeInstructions: Array<string>;
 		Rating?: string;
+		CookTime?: string;
 	}
 </script>
 <script setup lang="ts">
@@ -13,6 +14,15 @@
 
 	const ratingInt: undefined | number = !!props.Rating
 		? Math.floor(Number.parseFloat(props.Rating))
+		: undefined;
+
+	const cookTime: undefined | string = !!props.CookTime
+		? new Date(Number.parseInt(props.CookTime) * 1000)
+				.toISOString()
+				.split("T")[1]
+				.substring(0, 5)
+				.replace(":", "h ")
+				.concat("m")
 		: undefined;
 </script>
 
@@ -26,9 +36,14 @@
 		<div class="grid grid-flow-row text-left py-2">
 			<div class="flex justify-between">
 				<h3 class="text-md">{{ props.Name }}</h3>
-				<span v-if="ratingInt != undefined" class="block text-sm"
-					>{{ ratingInt }}/5</span
-				>
+				<div class="grid min-w-[7ch]">
+					<span v-if="ratingInt != undefined" class="block text-sm">
+						{{ ratingInt }}/5
+					</span>
+					<span v-if="cookTime != undefined" class="block text-sm">
+						{{ cookTime }}
+					</span>
+				</div>
 			</div>
 			<span class="text-sm">{{ props.RecipeIngredientParts.join(", ") }}</span>
 		</div>

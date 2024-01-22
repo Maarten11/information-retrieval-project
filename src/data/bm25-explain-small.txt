@@ -1,0 +1,90 @@
+Writing data to index at '../.test_index/'
+added to index
+
+########## Searching for ingredient: 'milk' ##########
+Glass of milk: 60, 5
+['milk']
+0.2788157 = weight(RecipeIngredientParts:milk in 0) [BM25Similarity], result of:
+  0.2788157 = score(freq=1.0), computed as boost * idf * tf from:
+    0.47000363 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      2 = n, number of documents containing term
+      3 = N, total number of documents with field
+    0.5932203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      1.0 = dl, length of field
+      2.3333333 = avgdl, average length of field
+
+Suggary milk: 60, 2
+['milk', 'sugar']
+0.2268983 = weight(RecipeIngredientParts:milk in 1) [BM25Similarity], result of:
+  0.2268983 = score(freq=1.0), computed as boost * idf * tf from:
+    0.47000363 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      2 = n, number of documents containing term
+      3 = N, total number of documents with field
+    0.48275858 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      2.0 = dl, length of field
+      2.3333333 = avgdl, average length of field
+
+
+########## Searching for ingredient: 'milk', 'sugar' ##########
+Suggary milk: 60, 2
+['milk', 'sugar']
+0.4537966 = sum of:
+  0.2268983 = weight(RecipeIngredientParts:milk in 1) [BM25Similarity], result of:
+    0.2268983 = score(freq=1.0), computed as boost * idf * tf from:
+      0.47000363 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+        2 = n, number of documents containing term
+        3 = N, total number of documents with field
+      0.48275858 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+        1.0 = freq, occurrences of term within document
+        1.2 = k1, term saturation parameter
+        0.75 = b, length normalization parameter
+        2.0 = dl, length of field
+        2.3333333 = avgdl, average length of field
+  0.2268983 = weight(RecipeIngredientParts:sugar in 1) [BM25Similarity], result of:
+    0.2268983 = score(freq=1.0), computed as boost * idf * tf from:
+      0.47000363 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+        2 = n, number of documents containing term
+        3 = N, total number of documents with field
+      0.48275858 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+        1.0 = freq, occurrences of term within document
+        1.2 = k1, term saturation parameter
+        0.75 = b, length normalization parameter
+        2.0 = dl, length of field
+        2.3333333 = avgdl, average length of field
+
+Glass of milk: 60, 5
+['milk']
+0.2788157 = sum of:
+  0.2788157 = weight(RecipeIngredientParts:milk in 0) [BM25Similarity], result of:
+    0.2788157 = score(freq=1.0), computed as boost * idf * tf from:
+      0.47000363 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+        2 = n, number of documents containing term
+        3 = N, total number of documents with field
+      0.5932203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+        1.0 = freq, occurrences of term within document
+        1.2 = k1, term saturation parameter
+        0.75 = b, length normalization parameter
+        1.0 = dl, length of field
+        2.3333333 = avgdl, average length of field
+
+Cake: 1800, 3
+['eggs', 'flour', 'sugar', 'butter']
+0.1653279 = sum of:
+  0.1653279 = weight(RecipeIngredientParts:sugar in 2) [BM25Similarity], result of:
+    0.1653279 = score(freq=1.0), computed as boost * idf * tf from:
+      0.47000363 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+        2 = n, number of documents containing term
+        3 = N, total number of documents with field
+      0.35175878 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+        1.0 = freq, occurrences of term within document
+        1.2 = k1, term saturation parameter
+        0.75 = b, length normalization parameter
+        4.0 = dl, length of field
+        2.3333333 = avgdl, average length of field
+

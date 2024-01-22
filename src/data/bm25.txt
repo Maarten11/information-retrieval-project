@@ -1,0 +1,253 @@
+########## Searching for name: 'glass milk' ##########
+Glass of milk: 60, 5
+['milk']
+Egg-less, Milk-less, Butter-less Cake: 2580, 3
+['raisins', 'water', 'brown sugar', 'cinnamon', 'clove', 'baking soda', 'flour', 'baking powder']
+Glazed Lemon-Dill Carrots: 1200, 5
+['carrot', 'cornstarch', 'chicken broth', 'lemon juice', 'dried dill weed', 'butter', 'salt', 'ground black pepper']
+Spiced Glazed Carrots With Dill: 720, 5
+['carrot', 'butter', 'sugar', 'ginger', 'orange', 'dill']
+Alternative Bundt Cake Glaze Using Sweetened Condensed Milk: 420, 5
+['butter', 'sweetened condensed milk', 'vanilla']
+Pennsylvania Dutch Flash Un Kas (Savory Filled Pastry Appetizers: 600, 0
+['butter', 'cream cheese', 'all-purpose flour', 'Worcestershire sauce', 'ketchup']
+
+########## Searching for name: 'glass milk' rating: 5 ##########
+Glass of milk: 60, 5
+['milk']
+Glazed Lemon-Dill Carrots: 1200, 5
+['carrot', 'cornstarch', 'chicken broth', 'lemon juice', 'dried dill weed', 'butter', 'salt', 'ground black pepper']
+Spiced Glazed Carrots With Dill: 720, 5
+['carrot', 'butter', 'sugar', 'ginger', 'orange', 'dill']
+Alternative Bundt Cake Glaze Using Sweetened Condensed Milk: 420, 5
+['butter', 'sweetened condensed milk', 'vanilla']
+
+########## Searching for name: 'glass milk' duration: 500  ##########
+Glass of milk: 60, 5
+['milk']
+Alternative Bundt Cake Glaze Using Sweetened Condensed Milk: 420, 5
+['butter', 'sweetened condensed milk', 'vanilla']
+
+########## Searching for name: 'milk' ##########
+Milk Tart (Melk Tert): 10800, 4
+['flour', 'egg', 'sugar', 'butter', 'salt', 'baking powder', 'homogenized milk', 'butter', 'cornstarch', 'eggs', 'vanilla essence', 'salt', 'sugar', 'flour']
+Milk Filling for Cereal Bars: None, 5
+['butter', 'margarine', 'powdered sugar', 'non-fat powdered milk', 'vanilla extract', 'hot water']
+Milk Chocolate Ice Milk: 43200, 5
+['milk']
+Soybean Milk: 900, 5
+['dried soybeans', 'water', 'sugar']
+Milk Tart: 1200, 3
+['butter', 'sugar', 'egg', 'flour', 'salt', 'milk', 'butter', 'sugar', 'eggs', 'cornflour', 'flour', 'vanilla essence']
+Moose milk: 600, 4
+['sugar', 'water', 'rum']
+Soya milk: 720, 4
+['soybeans', 'water', 'sugar']
+Almond Milk: None, 4
+['pitted dates', 'cinnamon', 'nutmeg']
+Tiger Milk: None, 0
+['evaporated milk', 'plain yogurt', 'lamb baby food', 'white corn syrup']
+Milk Toast: 180, 3
+['butter', 'milk', 'raisins', 'salt', 'cinnamon']
+Vanilla Milk: None, 4
+['milk', 'vanilla flavoring', 'sugar']
+Milk Pie: 1020, 4
+['cornstarch', 'salt', 'sugar', 'egg', 'vanilla extract']
+Milk Tart: 900, 4
+['butter', 'sugar', 'eggs', 'flour', 'baking powder', 'salt', 'milk', 'butter', 'flour', 'cornstarch', 'sugar', 'eggs', 'vanilla', 'cinnamon', 'sugar']
+Evaporated Milk: 300, 5
+['warm water', 'powdered milk', 'butter']
+Moose Milk: None, 5
+['eggs', 'dark rum', 'Kahlua', 'maple syrup', 'milk', 'heavy whipping cream', 'sugar', 'nutmeg']
+
+########## Searching for name: 'milk' exclude: 'sugar' ##########
+Milk Chocolate Ice Milk: 43200, 5
+['milk']
+Almond Milk: None, 4
+['pitted dates', 'cinnamon', 'nutmeg']
+Tiger Milk: None, 0
+['evaporated milk', 'plain yogurt', 'lamb baby food', 'white corn syrup']
+Milk Toast: 180, 3
+['butter', 'milk', 'raisins', 'salt', 'cinnamon']
+Evaporated Milk: 300, 5
+['warm water', 'powdered milk', 'butter']
+Milk Bath: None, 5
+['skim milk powder', 'baking soda', 'cornstarch']
+Milk Mask: 1200, 2
+['dry milk', 'water', 'honey']
+milk toast: 900, 5
+['butter', 'flour', 'milk', 'soymilk']
+Banana Milk: None, 5
+['bananas', 'vanilla extract', 'skim milk']
+Milk Paint: None, 0
+['skim milk powder', 'limes']
+Almond Milk: 300, 5
+['water', 'warm water']
+Banana Milk: None, 4
+['banana', 'water', 'milk', 'vanilla']
+Rice Milk: 1800, 3
+['warm water', 'cooked rice', 'vanilla']
+Milk Rolls: 900, 4
+['unbleached white flour', 'butter', 'salt', 'fast-rising active dry yeast', 'milk', 'egg', 'poppy seed', 'sesame seeds']
+Milk Whip: 300, 4
+['boiling water']
+
+########## Searching for ingredient: 'milk' ##########
+Crock Pot Chicken N' Stuffing: 14400, 4
+['milk', 'mild cheddar cheese']
+English Monkey (Breakfast Snack): None, 1
+['milk', 'butter', 'mild cheese', 'egg']
+Spam &amp; Potato Casserole: 3600, 4
+['potatoes', 'mild red onion', 'evaporated milk']
+Chicken Tortilla Soup: 2700, 5
+['milk', 'mild salsa', 'sour cream', 'cheese']
+Chris's Tater Tot Casserole: 3600, 4
+['hamburger', 'onion', 'milk', 'colby', 'mild cheddar cheese']
+White Castle Breakfast Casserole: 2700, 4
+['mild cheddar cheese', 'eggs', 'skim milk', 'salt', 'pepper', 'mild green chilies']
+Sausage Balls: 1500, 5
+['hot sausage', 'mild sausage', 'Bisquick', 'milk', 'sharp cheddar cheese', 'mild cheddar cheese']
+Broccoli with Sauce (Amish): 2700, 3
+['broccoli', 'onions', 'flour', 'salt', 'milk', 'mild cheddar cheese']
+Mom's Tex Mex Cornbread Muffins: 1500, 5
+['milk', 'egg', 'cheddar cheese', 'mild salsa', 'cheddar cheese']
+Baked Chicken Puff: 2400, 5
+['milk', 'salt', 'turkey', 'peas', 'eggs', 'mild cheddar cheese']
+Kid-Friendly Chicken and Biscuits: 2100, 5
+['sour cream', 'mild cheddar cheese', 'baking mix', 'milk']
+Baked Eggs OAMC: 2700, 5
+['mild cheddar cheese', 'ham', 'bell pepper', 'onion', 'eggs', 'milk']
+Cheesy Spaghetti Corn Casserole: 3600, 4
+['spaghetti', 'mild cheddar cheese', 'whole kernel corn', 'margarine', 'milk']
+Chile Cheese Cornbread in a Jiffy: 1500, 3
+['eggs', 'milk', 'sour cream', 'mild green chilies', 'cheddar cheese']
+Deluxe Cheesy Tuna Mac: 1200, 4
+['onion', 'celery', 'tuna', 'milk', 'mild cheddar cheese', 'butter', 'margarine']
+
+########## Searching for ingredient: 'milk', 'sugar' ##########
+Alcohol Free Pina Colada Smoothie: None, 5
+['coconut milk', 'milk', 'sugar']
+Shake, Smoothie... Frozen Fruit Drink: 300, 4
+['coconut milk', 'milk', 'sugar']
+Fudge Slush: 300, 5
+['granulated sugar', 'milk', 'milk']
+Coconut Bread Pudding: 5820, 5
+['milk', 'evaporated milk', 'sugar', 'coconut', 'butter', 'sugar']
+Nut and Poppy Seed Roll ( Hedeg Kelet): 2100, 5
+['milk', 'sugar', 'flour', 'butter', 'salt', 'sugar', 'flour', 'poppy seed', 'sugar', 'milk', 'ground walnuts', 'sugar', 'milk']
+Muhallebi (Cypriot Rice Powder Pudding): 900, 5
+['milk', 'sugar', 'sugar']
+Hermann - the Feeding and Care: 2700, 5
+['flour', 'sugar', 'milk', 'flour', 'sugar', 'milk', 'flour', 'baking powder', 'sugar', 'salt', 'eggs', 'vanilla', 'milk']
+Caramel Apple Pecan Pie: 2700, 5
+['tart apples', 'pecans', 'sugar', 'flour', 'milk', 'milk', 'sugar']
+Burfi a La Yamuna - Indian Fudge: 3600, 4
+['butter', 'brown sugar', 'white sugar', 'milk', 'powdered milk']
+Cinnamon Apple Tart: 1500, 4
+['apple', 'lemon juice', 'sugar', 'milk', "confectioners' sugar", 'milk']
+Dairy-Free Eggnog: None, 5
+['sugar', 'sugar', 'soya milk', 'coconut milk', 'rum', 'nutmeg']
+Italian Lemon Drop Cookies: 1200, 4
+['sugar', 'baking powder', 'milk', 'egg', 'powdered sugar', 'milk']
+Deep Fried Strawberries: 600, 5
+['milk', 'milk', 'strawberries', 'powdered sugar']
+Toffee Cream of Wheat: 600, 5
+['milk', 'salt', 'butter', 'sugar', 'milk']
+Hot Fudge Sauce: 300, 4
+['sugar', 'milk', 'cornstarch', 'milk', 'vanilla']
+
+########## Searching for ingredient: 'sugar', egg', 'flour', 'butter' ##########
+Blackberry Custard Pie: 3300, 4
+['sour cream', 'eggs', 'flour', 'butter', 'blackberries', 'sugar', 'flour', 'sugar']
+Peach Kuchen: 2400, 3
+['flour', 'butter', 'milk', 'salt', 'egg', 'eggs', 'sugar', 'flour', 'milk', 'sugar', 'flour', 'butter']
+Blueberry Squares: 3000, 5
+['butter', 'eggs', 'sugar', 'baking powder', 'salt', 'flour', 'sour cream', 'sugar', 'flour', 'butter']
+Easy Croissants: 23100, 4
+['milk', 'sugar', 'flour', 'milk', 'salt', 'sugar', 'egg', 'butter', 'flour', 'butter', 'egg']
+Tarte Montmorency: 2700, 4
+['flour', 'baking powder', 'salt', 'butter', 'sugar', 'egg', 'icing sugar', 'butter', 'sugar', 'eggs', 'flour']
+Kuga -- German Breakfast Bread: 1200, 0
+['granulated sugar', 'sugar', 'water', 'milk', 'butter', 'margarine', 'salt', 'flour', 'eggs', 'egg', 'granulated sugar', 'sour cream', 'butter', 'granulated sugar', 'flour']
+Warm Chocolate Melting Cake: 1200, 5
+['butter', 'butter', 'eggs', 'sugar', 'flour']
+Swiss Plum Kuchen: 2700, 5
+['flour', 'sugar', 'salt', 'baking powder', 'butter', 'eggs', 'sugar', 'butter', 'eggs', 'flour', 'plums']
+Fruit Tartlets With Lemon Curd: 1800, 5
+['butter', 'sugar', 'egg', 'all-purpose flour', 'butter', 'eggs', 'sugar']
+Beignets &aacute; La Fleur De Sureau - Elderflower Fritters: 600, 4
+['elderberry flowers', 'sugar', 'eggs', 'sugar', 'salt', 'flour', 'butter', "confectioners' sugar"]
+Jan Hagel: 1800, 4
+['butter', 'sugar', 'eggs', 'flour', 'sugar']
+Almond-Butter Cake: 2400, 5
+['sugar', 'sugar', 'butter', 'eggs', 'flour']
+Blueberry Cream Pie: 3000, 4
+['fresh blueberries', 'sugar', 'flour', 'salt', 'eggs', 'sour cream', 'sugar', 'flour', 'butter']
+Sour Cream Almond Apple Pie: 2700, 5
+['egg', 'sour cream', 'sugar', 'flour', 'salt', 'apples', 'flour', 'brown sugar', 'butter']
+7 Up Cake: 5100, 3
+['butter', 'sugar', 'eggs', 'flour']
+
+########## Searching for ingredient: 'sugar', egg', 'flour', 'buter' ##########
+Kuga -- German Breakfast Bread: 1200, 0
+['granulated sugar', 'sugar', 'water', 'milk', 'butter', 'margarine', 'salt', 'flour', 'eggs', 'egg', 'granulated sugar', 'sour cream', 'butter', 'granulated sugar', 'flour']
+Kringler: 1800, 5
+['flour', 'butter', 'water', 'water', 'butter', 'eggs', 'flour', 'butter', 'powdered sugar']
+Shu Cream (Japanese Cream Puff): 2400, 2
+['butter', 'sugar', 'water', 'flour', 'eggs', 'flour', 'sugar', 'milk', 'butter', 'powdered sugar']
+Fudge Brownie Bites: 3600, 5
+['butter', "baker's unsweetened chocolate squares", 'sugar', 'eggs', 'flour']
+Best Ever Sweet Rolls: 7200, 4
+['water', 'flour', 'flour', 'eggs', 'butter', 'sugar', 'cinnamon']
+Layered Mint Chocolate Brownies: 2100, 4
+['flour', 'sugar', 'butter', 'eggs', 'powdered sugar', 'butter', 'water', 'butter']
+Williamsburg Almond Puff Pastry: 2400, 5
+['flour', 'butter', 'water', 'water', 'butter', 'flour', 'eggs', 'butter', 'powdered sugar', 'milk']
+White Texas Sheet Cake: 1200, 4
+['butter', 'water', 'flour', 'sugar', 'eggs', 'sour cream', 'salt', 'butter', 'milk', 'powdered sugar']
+Blackberry Custard Pie: 3300, 4
+['sour cream', 'eggs', 'flour', 'butter', 'blackberries', 'sugar', 'flour', 'sugar']
+Pandan Fudge Cake: 3600, 5
+['eggs', 'sugar', 'plain flour', 'water', 'sugar', 'butter', 'agar', 'water', 'coconut milk']
+Scandinavian Kringler: 3600, 3
+['flour', 'butter', 'water', 'butter', 'flour', 'eggs', 'powdered sugar', 'butter', 'milk']
+Sugar Plum Dreams Cookies: 720, 5
+['flour', 'butter', 'warm water', 'eggs', 'salt', 'sour cream', 'sugar']
+Challah: 2400, 5
+['water', 'eggs', 'butter', 'salt', 'sugar', 'bread flour', 'egg', 'water']
+Jo's Luscious Orange Rolls: 1200, 5
+['water', 'sour cream', 'sugar', 'salt', 'butter', 'eggs', 'flour', 'orange zest', 'butter', 'sugar', 'sour cream', 'butter']
+Apple and Banana Sauce: 600, 5
+['egg', 'sugar', 'flour', 'butter', 'water', 'vanilla']
+
+########## Searching for name: 'cookie' ingredient: 'sugar', egg', 'flour', 'butter' ##########
+Wookie Cookies: None, 5
+['all-purpose flour', 'baking soda', 'salt', 'ground cinnamon', 'unsalted butter', 'brown sugar', 'granulated sugar', 'eggs', 'vanilla extract']
+Rooster Cookies (Sugar Cookies): 600, 4
+['butter', 'sugar', 'egg', 'salt', 'flour']
+Butter Cookies: 600, 4
+['butter', 'sugar', 'egg', 'flour']
+Spritz Cookies: 480, 4
+['flour', 'salt', 'butter', 'sugar', 'egg', 'sugar']
+Lavender Cookies: 900, 0
+['butter', 'granulated sugar', 'egg', 'flour']
+Jelly Cookies: 900, 3
+['butter', 'sugar', 'egg', 'vanilla', 'flour', 'cake flour']
+Chocolate Brownie Cookies: 480, 4
+['flour', 'sugar', 'butter', 'eggs']
+Holiday Rainbow Cookies: 2700, 5
+['eggs', 'sugar', 'flour', 'butter']
+Thimble Cookies (Christmas Cookies): 840, 5
+['butter', 'white sugar', 'eggs', 'vanilla', 'flour', 'walnuts']
+Danish Cookies (Press Cookies): 600, 5
+['flour', 'granulated sugar', 'butter', 'salt', 'vanilla', 'eggs']
+Butter Cookies: 600, 5
+['sugar', 'butter', 'salt', 'egg', 'flour', 'vanilla']
+Norwegian Cookies: 900, 4
+['butter', 'sugar', 'egg', 'flour', 'maraschino cherries']
+Rainbow Cookies: 3600, 5
+['almond paste', 'butter', 'flour', 'sugar', 'eggs']
+Banana Cookies: 600, 3
+['flour', 'butter', 'sugar', 'eggs', 'cinnamon', 'vanilla']
+Thumbprint Cookies: 1080, 5
+['butter', 'brown sugar', 'egg', 'flour', 'pecans']

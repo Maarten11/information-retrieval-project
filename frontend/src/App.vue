@@ -56,8 +56,8 @@
 			: new Date(Number.parseInt(duration.value) * 1000)
 					.toISOString()
 					.slice(11, 16)
-					.replace(":", "H")
-					.concat("M")
+					.replace(":", "h ")
+					.concat("m")
 	);
 
 	const ratingShow = computed(() =>

@@ -1,0 +1,962 @@
+Writing data to index at '../.test_index/'
+added to index
+Writing data to index at '../.test_index/'
+added to index
+Writing data to index at '../.test_index/'
+added to index
+
+########## Searching for name: 'cookie' ingredient: 'sugar', egg', 'flour', 'butter' ##########
+Wookie Cookies: None, None
+['all-purpose flour', 'baking soda', 'salt', 'ground cinnamon', 'unsalted butter', 'brown sugar', 'granulated sugar', 'eggs', 'vanilla extract']
+5.0908356 = sum of:
+  2.7862232 = sum of:
+    1.5921276 = weight(Name:cooki in 176400) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+    1.1940956 = weight(Name:wooki in 176400) [BM25Similarity], result of:
+      1.1940956 = score(freq=1.0), computed as boost * idf * tf from:
+        0.6 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  2.3046122 = sum of:
+    0.5815824 = weight(RecipeIngredientParts:flour in 176400) [BM25Similarity], result of:
+      0.5815824 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.41353083 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.6264273 = weight(RecipeIngredientParts:sugar in 176400) [BM25Similarity], result of:
+      0.6264273 = score(freq=2.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5851034 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.49974442 = weight(RecipeIngredientParts:butter in 176400) [BM25Similarity], result of:
+      0.49974442 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.41353083 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.5968579 = weight(RecipeIngredientParts:egg in 176400) [BM25Similarity], result of:
+      0.5968579 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.41353083 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Wookie Cookies: None, 5
+['all-purpose flour', 'baking soda', 'salt', 'ground cinnamon', 'unsalted butter', 'brown sugar', 'granulated sugar', 'eggs', 'vanilla extract']
+5.0908356 = sum of:
+  2.7862232 = sum of:
+    1.5921276 = weight(Name:cooki in 12604) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+    1.1940956 = weight(Name:wooki in 12604) [BM25Similarity], result of:
+      1.1940956 = score(freq=1.0), computed as boost * idf * tf from:
+        0.6 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  2.3046122 = sum of:
+    0.5815824 = weight(RecipeIngredientParts:flour in 12604) [BM25Similarity], result of:
+      0.5815824 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.41353083 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.6264273 = weight(RecipeIngredientParts:sugar in 12604) [BM25Similarity], result of:
+      0.6264273 = score(freq=2.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5851034 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.49974442 = weight(RecipeIngredientParts:butter in 12604) [BM25Similarity], result of:
+      0.49974442 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.41353083 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.5968579 = weight(RecipeIngredientParts:egg in 12604) [BM25Similarity], result of:
+      0.5968579 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.41353083 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          17.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Spritz Cookies for Cookie Press: 720, None
+['butter', 'sugar', 'egg', 'vanilla', 'flour', 'sugar', 'flour']
+5.039956 = sum of:
+  1.7389708 = sum of:
+    1.7389708 = weight(Name:cooki in 28352) [BM25Similarity], result of:
+      1.7389708 = score(freq=2.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.6148727 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.300985 = sum of:
+    1.0189569 = weight(RecipeIngredientParts:flour in 28352) [BM25Similarity], result of:
+      1.0189569 = score(freq=2.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.7245235 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          7.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.77569425 = weight(RecipeIngredientParts:sugar in 28352) [BM25Similarity], result of:
+      0.77569425 = score(freq=2.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.7245235 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          7.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.6864676 = weight(RecipeIngredientParts:butter in 28352) [BM25Similarity], result of:
+      0.6864676 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.56804144 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          7.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.81986636 = weight(RecipeIngredientParts:egg in 28352) [BM25Similarity], result of:
+      0.81986636 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.56804144 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          7.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Rooster Cookies (Sugar Cookies): 600, None
+['butter', 'sugar', 'egg', 'salt', 'flour']
+4.8876405 = sum of:
+  1.7389708 = sum of:
+    1.7389708 = weight(Name:cooki in 169105) [BM25Similarity], result of:
+      1.7389708 = score(freq=2.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.6148727 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1486697 = sum of:
+    0.8634033 = weight(RecipeIngredientParts:flour in 169105) [BM25Similarity], result of:
+      0.8634033 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.657277 = weight(RecipeIngredientParts:sugar in 169105) [BM25Similarity], result of:
+      0.657277 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.74190855 = weight(RecipeIngredientParts:butter in 169105) [BM25Similarity], result of:
+      0.74190855 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.886081 = weight(RecipeIngredientParts:egg in 169105) [BM25Similarity], result of:
+      0.886081 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Rooster Cookies (Sugar Cookies): 600, 4
+['butter', 'sugar', 'egg', 'salt', 'flour']
+4.8876405 = sum of:
+  1.7389708 = sum of:
+    1.7389708 = weight(Name:cooki in 8605) [BM25Similarity], result of:
+      1.7389708 = score(freq=2.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.6148727 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1486697 = sum of:
+    0.8634033 = weight(RecipeIngredientParts:flour in 8605) [BM25Similarity], result of:
+      0.8634033 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.657277 = weight(RecipeIngredientParts:sugar in 8605) [BM25Similarity], result of:
+      0.657277 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.74190855 = weight(RecipeIngredientParts:butter in 8605) [BM25Similarity], result of:
+      0.74190855 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.886081 = weight(RecipeIngredientParts:egg in 8605) [BM25Similarity], result of:
+      0.886081 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Butter Cookies: 600, None
+['butter', 'sugar', 'egg', 'flour']
+4.8732953 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 323113) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.2811677 = sum of:
+    0.8997358 = weight(RecipeIngredientParts:flour in 323113) [BM25Similarity], result of:
+      0.8997358 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.68493557 = weight(RecipeIngredientParts:sugar in 323113) [BM25Similarity], result of:
+      0.68493557 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.7731285 = weight(RecipeIngredientParts:butter in 323113) [BM25Similarity], result of:
+      0.7731285 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.9233678 = weight(RecipeIngredientParts:egg in 323113) [BM25Similarity], result of:
+      0.9233678 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Cookie in a Cup: 120, None
+['butter', 'sugar', 'flour', 'egg']
+4.8732953 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 25103) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.2811677 = sum of:
+    0.8997358 = weight(RecipeIngredientParts:flour in 25103) [BM25Similarity], result of:
+      0.8997358 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.68493557 = weight(RecipeIngredientParts:sugar in 25103) [BM25Similarity], result of:
+      0.68493557 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.7731285 = weight(RecipeIngredientParts:butter in 25103) [BM25Similarity], result of:
+      0.7731285 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.9233678 = weight(RecipeIngredientParts:egg in 25103) [BM25Similarity], result of:
+      0.9233678 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Butter Cookies: 600, 4
+['butter', 'sugar', 'egg', 'flour']
+4.8732953 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 15344) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.2811677 = sum of:
+    0.8997358 = weight(RecipeIngredientParts:flour in 15344) [BM25Similarity], result of:
+      0.8997358 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.68493557 = weight(RecipeIngredientParts:sugar in 15344) [BM25Similarity], result of:
+      0.68493557 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.7731285 = weight(RecipeIngredientParts:butter in 15344) [BM25Similarity], result of:
+      0.7731285 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.9233678 = weight(RecipeIngredientParts:egg in 15344) [BM25Similarity], result of:
+      0.9233678 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.63975203 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          4.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Spritz Cookies: 480, None
+['flour', 'salt', 'butter', 'sugar', 'egg', 'sugar']
+4.7814484 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 323630) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1893208 = sum of:
+    0.8298912 = weight(RecipeIngredientParts:flour in 323630) [BM25Similarity], result of:
+      0.8298912 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5900893 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.79462886 = weight(RecipeIngredientParts:sugar in 323630) [BM25Similarity], result of:
+      0.79462886 = score(freq=2.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.7422091 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.7131121 = weight(RecipeIngredientParts:butter in 323630) [BM25Similarity], result of:
+      0.7131121 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5900893 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.8516886 = weight(RecipeIngredientParts:egg in 323630) [BM25Similarity], result of:
+      0.8516886 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5900893 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Spritz Cookies: 480, 4
+['flour', 'salt', 'butter', 'sugar', 'egg', 'sugar']
+4.7814484 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 15749) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1893208 = sum of:
+    0.8298912 = weight(RecipeIngredientParts:flour in 15749) [BM25Similarity], result of:
+      0.8298912 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5900893 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.79462886 = weight(RecipeIngredientParts:sugar in 15749) [BM25Similarity], result of:
+      0.79462886 = score(freq=2.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.7422091 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          2.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.7131121 = weight(RecipeIngredientParts:butter in 15749) [BM25Similarity], result of:
+      0.7131121 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5900893 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.8516886 = weight(RecipeIngredientParts:egg in 15749) [BM25Similarity], result of:
+      0.8516886 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.5900893 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          6.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Checkerboard Cookies: 900, None
+['butter', 'sugar', 'egg', 'vanilla', 'flour']
+4.740797 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 6555) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1486697 = sum of:
+    0.8634033 = weight(RecipeIngredientParts:flour in 6555) [BM25Similarity], result of:
+      0.8634033 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.657277 = weight(RecipeIngredientParts:sugar in 6555) [BM25Similarity], result of:
+      0.657277 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.74190855 = weight(RecipeIngredientParts:butter in 6555) [BM25Similarity], result of:
+      0.74190855 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.886081 = weight(RecipeIngredientParts:egg in 6555) [BM25Similarity], result of:
+      0.886081 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Anise Cookies: 600, None
+['butter', 'sugar', 'egg', 'salt', 'flour']
+4.740797 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 6609) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1486697 = sum of:
+    0.8634033 = weight(RecipeIngredientParts:flour in 6609) [BM25Similarity], result of:
+      0.8634033 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.657277 = weight(RecipeIngredientParts:sugar in 6609) [BM25Similarity], result of:
+      0.657277 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.74190855 = weight(RecipeIngredientParts:butter in 6609) [BM25Similarity], result of:
+      0.74190855 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.886081 = weight(RecipeIngredientParts:egg in 6609) [BM25Similarity], result of:
+      0.886081 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Cookie Cobbler: 2100, None
+['butter', 'sugar', 'eggs', 'vanilla', 'flour']
+4.740797 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 151763) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1486697 = sum of:
+    0.8634033 = weight(RecipeIngredientParts:flour in 151763) [BM25Similarity], result of:
+      0.8634033 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.657277 = weight(RecipeIngredientParts:sugar in 151763) [BM25Similarity], result of:
+      0.657277 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.74190855 = weight(RecipeIngredientParts:butter in 151763) [BM25Similarity], result of:
+      0.74190855 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.886081 = weight(RecipeIngredientParts:egg in 151763) [BM25Similarity], result of:
+      0.886081 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Lavender Cookies: 900, None
+['butter', 'granulated sugar', 'egg', 'flour']
+4.740797 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 361564) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1486697 = sum of:
+    0.8634033 = weight(RecipeIngredientParts:flour in 361564) [BM25Similarity], result of:
+      0.8634033 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.657277 = weight(RecipeIngredientParts:sugar in 361564) [BM25Similarity], result of:
+      0.657277 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.74190855 = weight(RecipeIngredientParts:butter in 361564) [BM25Similarity], result of:
+      0.74190855 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.886081 = weight(RecipeIngredientParts:egg in 361564) [BM25Similarity], result of:
+      0.886081 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+
+Watermelon Cookies: 17100, None
+['butter', 'sugar', 'flour', 'salt', 'egg']
+4.740797 = sum of:
+  1.5921276 = sum of:
+    1.5921276 = weight(Name:cooki in 28156) [BM25Similarity], result of:
+      1.5921276 = score(freq=1.0), computed as boost * idf * tf from:
+        0.8 = boost
+        3.5352254 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          23151 = n, number of documents containing term
+          794159 = N, total number of documents with field
+        0.5629512 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          2.0 = dl, length of field
+          3.7787106 = avgdl, average length of field
+  3.1486697 = sum of:
+    0.8634033 = weight(RecipeIngredientParts:flour in 28156) [BM25Similarity], result of:
+      0.8634033 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4063822 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          193793 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.657277 = weight(RecipeIngredientParts:sugar in 28156) [BM25Similarity], result of:
+      0.657277 = score(freq=1.0), computed as boost * idf * tf from:
+        1.0706267 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          271116 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.74190855 = weight(RecipeIngredientParts:butter in 28156) [BM25Similarity], result of:
+      0.74190855 = score(freq=1.0), computed as boost * idf * tf from:
+        1.2084816 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          236203 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+    0.886081 = weight(RecipeIngredientParts:egg in 28156) [BM25Similarity], result of:
+      0.886081 = score(freq=1.0), computed as boost * idf * tf from:
+        1.4433215 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+          186765 = n, number of documents containing term
+          790902 = N, total number of documents with field
+        0.61391795 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+          1.0 = freq, occurrences of term within document
+          1.2 = k1, term saturation parameter
+          0.75 = b, length normalization parameter
+          5.0 = dl, length of field
+          13.682714 = avgdl, average length of field
+

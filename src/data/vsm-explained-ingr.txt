@@ -1,0 +1,307 @@
+Writing data to index at '../.test_index/'
+added to index
+Writing data to index at '../.test_index/'
+added to index
+Writing data to index at '../.test_index/'
+added to index
+########## Searching for ingredient: 'milk', 'sugar' ##########
+Green Tea Ice Cream-Matcha Aisukuriimu: 10800, None
+['milk', 'milk', 'sugar']
+3.4777124 = sum of:
+  2.2822366 = weight(RecipeIngredientParts:milk in 131817) [ClassicSimilarity], result of:
+    2.2822366 = score(freq=2.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.4142135 = tf(freq=2.0), with freq of:
+        2.0 = freq, occurrences of term within document
+      0.57735026 = fieldNorm
+  1.1954758 = weight(RecipeIngredientParts:sugar in 131817) [ClassicSimilarity], result of:
+    1.1954758 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.57735026 = fieldNorm
+
+Magic Bullet Peppermint Mocha: None, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 1438) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 1438) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Ice Cream: 14400, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 27961) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 27961) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Mom's Cough Remedy: 300, None
+['sugar', 'milk']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 64335) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 64335) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Chocolate Chunk Hot Cocoa Mix: None, None
+['sugar', 'milk']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 68746) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 68746) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Rose Kheer: 3600, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 80828) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 80828) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Eggless Microwave Custard: 300, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 84795) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 84795) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Hot Chocolate Dry Mix: 300, None
+['sugar', 'milk']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 90535) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 90535) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Orange Milk: None, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 98030) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 98030) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Iced Cappuccino Smoothie: None, None
+['sugar', 'milk']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 111436) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 111436) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Chocolate Syrup (For Ice Cream): 420, None
+['sugar', 'milk']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 119299) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 119299) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Fruity Pancake Bread: 2100, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 126915) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 126915) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Summer's Peach Frosty: None, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 127066) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 127066) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Caramel Frappe' -- Just Like Mcdonalds!: 60, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 128684) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 128684) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+
+Manchester Tart: 900, None
+['milk', 'sugar']
+3.4406276 = sum of:
+  1.9764749 = weight(RecipeIngredientParts:milk in 155240) [ClassicSimilarity], result of:
+    1.9764749 = score(freq=1.0), product of:
+      2.7951577 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        131369 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+  1.4641528 = weight(RecipeIngredientParts:sugar in 155240) [ClassicSimilarity], result of:
+    1.4641528 = score(freq=1.0), product of:
+      2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+        271116 = docFreq, number of documents containing term
+        790902 = docCount, total number of documents with field
+      1.0 = tf(freq=1.0), with freq of:
+        1.0 = freq, occurrences of term within document
+      0.70710677 = fieldNorm
+

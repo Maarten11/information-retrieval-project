@@ -1,0 +1,731 @@
+Writing data to index at '../.test_index/'
+added to index
+Writing data to index at '../.test_index/'
+added to index
+Writing data to index at '../.test_index/'
+added to index
+
+########## Searching for name: 'cookie' ingredient: 'sugar', egg', 'flour', 'butter' ##########
+Butter Cookies: 600, None
+['butter', 'sugar', 'egg', 'flour']
+7.1299 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 323113) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  4.5644016 = sum of:
+    1.2031898 = weight(RecipeIngredientParts:flour in 323113) [ClassicSimilarity], result of:
+      1.2031898 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.0353124 = weight(RecipeIngredientParts:sugar in 323113) [ClassicSimilarity], result of:
+      1.0353124 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.1042397 = weight(RecipeIngredientParts:butter in 323113) [ClassicSimilarity], result of:
+      1.1042397 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.2216594 = weight(RecipeIngredientParts:egg in 323113) [ClassicSimilarity], result of:
+      1.2216594 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+
+Cookie in a Cup: 120, None
+['butter', 'sugar', 'flour', 'egg']
+7.1299 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 25103) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  4.5644016 = sum of:
+    1.2031898 = weight(RecipeIngredientParts:flour in 25103) [ClassicSimilarity], result of:
+      1.2031898 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.0353124 = weight(RecipeIngredientParts:sugar in 25103) [ClassicSimilarity], result of:
+      1.0353124 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.1042397 = weight(RecipeIngredientParts:butter in 25103) [ClassicSimilarity], result of:
+      1.1042397 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.2216594 = weight(RecipeIngredientParts:egg in 25103) [ClassicSimilarity], result of:
+      1.2216594 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+
+Butter Cookies: 600, 4
+['butter', 'sugar', 'egg', 'flour']
+7.1299 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 15344) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  4.5644016 = sum of:
+    1.2031898 = weight(RecipeIngredientParts:flour in 15344) [ClassicSimilarity], result of:
+      1.2031898 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.0353124 = weight(RecipeIngredientParts:sugar in 15344) [ClassicSimilarity], result of:
+      1.0353124 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.1042397 = weight(RecipeIngredientParts:butter in 15344) [ClassicSimilarity], result of:
+      1.1042397 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.2216594 = weight(RecipeIngredientParts:egg in 15344) [ClassicSimilarity], result of:
+      1.2216594 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+
+Wookie Cookies: None, None
+['all-purpose flour', 'baking soda', 'salt', 'ground cinnamon', 'unsalted butter', 'brown sugar', 'granulated sugar', 'eggs', 'vanilla extract']
+6.9117007 = sum of:
+  4.4896226 = sum of:
+    2.5654986 = weight(Name:cooki in 176400) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+    1.9241241 = weight(Name:wooki in 176400) [ClassicSimilarity], result of:
+      1.9241241 = score(freq=1.0), product of:
+        0.6 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  2.4220781 = sum of:
+    0.58363277 = weight(RecipeIngredientParts:flour in 176400) [ClassicSimilarity], result of:
+      0.58363277 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+    0.7102184 = weight(RecipeIngredientParts:sugar in 176400) [ClassicSimilarity], result of:
+      0.7102184 = score(freq=2.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.4142135 = tf(freq=2.0), with freq of:
+          2.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+    0.53563493 = weight(RecipeIngredientParts:butter in 176400) [ClassicSimilarity], result of:
+      0.53563493 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+    0.5925919 = weight(RecipeIngredientParts:egg in 176400) [ClassicSimilarity], result of:
+      0.5925919 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+
+Wookie Cookies: None, 5
+['all-purpose flour', 'baking soda', 'salt', 'ground cinnamon', 'unsalted butter', 'brown sugar', 'granulated sugar', 'eggs', 'vanilla extract']
+6.9117007 = sum of:
+  4.4896226 = sum of:
+    2.5654986 = weight(Name:cooki in 12604) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+    1.9241241 = weight(Name:wooki in 12604) [ClassicSimilarity], result of:
+      1.9241241 = score(freq=1.0), product of:
+        0.6 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  2.4220781 = sum of:
+    0.58363277 = weight(RecipeIngredientParts:flour in 12604) [ClassicSimilarity], result of:
+      0.58363277 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+    0.7102184 = weight(RecipeIngredientParts:sugar in 12604) [ClassicSimilarity], result of:
+      0.7102184 = score(freq=2.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.4142135 = tf(freq=2.0), with freq of:
+          2.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+    0.53563493 = weight(RecipeIngredientParts:butter in 12604) [ClassicSimilarity], result of:
+      0.53563493 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+    0.5925919 = weight(RecipeIngredientParts:egg in 12604) [ClassicSimilarity], result of:
+      0.5925919 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.24253562 = fieldNorm
+
+Spritz Cookies for Cookie Press: 720, None
+['butter', 'sugar', 'egg', 'vanilla', 'flour', 'sugar', 'flour']
+6.716772 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 28352) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=2.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.4142135 = tf(freq=2.0), with freq of:
+          2.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+  4.1512737 = sum of:
+    1.2862641 = weight(RecipeIngredientParts:flour in 28352) [ClassicSimilarity], result of:
+      1.2862641 = score(freq=2.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.4142135 = tf(freq=2.0), with freq of:
+          2.0 = freq, occurrences of term within document
+        0.37796447 = fieldNorm
+    1.1067954 = weight(RecipeIngredientParts:sugar in 28352) [ClassicSimilarity], result of:
+      1.1067954 = score(freq=2.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.4142135 = tf(freq=2.0), with freq of:
+          2.0 = freq, occurrences of term within document
+        0.37796447 = fieldNorm
+    0.83472675 = weight(RecipeIngredientParts:butter in 28352) [ClassicSimilarity], result of:
+      0.83472675 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.37796447 = fieldNorm
+    0.9234877 = weight(RecipeIngredientParts:egg in 28352) [ClassicSimilarity], result of:
+      0.9234877 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.37796447 = fieldNorm
+
+Holiday Rainbow Cookies: 2700, None
+['eggs', 'sugar', 'flour', 'butter']
+6.6591225 = sum of:
+  2.0947208 = sum of:
+    2.0947208 = weight(Name:cooki in 294776) [ClassicSimilarity], result of:
+      2.0947208 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.57735026 = fieldNorm
+  4.5644016 = sum of:
+    1.2031898 = weight(RecipeIngredientParts:flour in 294776) [ClassicSimilarity], result of:
+      1.2031898 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.0353124 = weight(RecipeIngredientParts:sugar in 294776) [ClassicSimilarity], result of:
+      1.0353124 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.1042397 = weight(RecipeIngredientParts:butter in 294776) [ClassicSimilarity], result of:
+      1.1042397 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.2216594 = weight(RecipeIngredientParts:egg in 294776) [ClassicSimilarity], result of:
+      1.2216594 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+
+Chocolate Brownie Cookies: 480, None
+['flour', 'sugar', 'butter', 'eggs']
+6.6591225 = sum of:
+  2.0947208 = sum of:
+    2.0947208 = weight(Name:cooki in 428560) [ClassicSimilarity], result of:
+      2.0947208 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.57735026 = fieldNorm
+  4.5644016 = sum of:
+    1.2031898 = weight(RecipeIngredientParts:flour in 428560) [ClassicSimilarity], result of:
+      1.2031898 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.0353124 = weight(RecipeIngredientParts:sugar in 428560) [ClassicSimilarity], result of:
+      1.0353124 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.1042397 = weight(RecipeIngredientParts:butter in 428560) [ClassicSimilarity], result of:
+      1.1042397 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.2216594 = weight(RecipeIngredientParts:egg in 428560) [ClassicSimilarity], result of:
+      1.2216594 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+
+Chocolate Brownie Cookies: 480, 4
+['flour', 'sugar', 'butter', 'eggs']
+6.6591225 = sum of:
+  2.0947208 = sum of:
+    2.0947208 = weight(Name:cooki in 30773) [ClassicSimilarity], result of:
+      2.0947208 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.57735026 = fieldNorm
+  4.5644016 = sum of:
+    1.2031898 = weight(RecipeIngredientParts:flour in 30773) [ClassicSimilarity], result of:
+      1.2031898 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.0353124 = weight(RecipeIngredientParts:sugar in 30773) [ClassicSimilarity], result of:
+      1.0353124 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.1042397 = weight(RecipeIngredientParts:butter in 30773) [ClassicSimilarity], result of:
+      1.1042397 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.2216594 = weight(RecipeIngredientParts:egg in 30773) [ClassicSimilarity], result of:
+      1.2216594 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+
+Holiday Rainbow Cookies: 2700, 5
+['eggs', 'sugar', 'flour', 'butter']
+6.6591225 = sum of:
+  2.0947208 = sum of:
+    2.0947208 = weight(Name:cooki in 3708) [ClassicSimilarity], result of:
+      2.0947208 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.57735026 = fieldNorm
+  4.5644016 = sum of:
+    1.2031898 = weight(RecipeIngredientParts:flour in 3708) [ClassicSimilarity], result of:
+      1.2031898 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.0353124 = weight(RecipeIngredientParts:sugar in 3708) [ClassicSimilarity], result of:
+      1.0353124 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.1042397 = weight(RecipeIngredientParts:butter in 3708) [ClassicSimilarity], result of:
+      1.1042397 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+    1.2216594 = weight(RecipeIngredientParts:egg in 3708) [ClassicSimilarity], result of:
+      1.2216594 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+
+Checkerboard Cookies: 900, None
+['butter', 'sugar', 'egg', 'vanilla', 'flour']
+6.6480236 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 6555) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  4.082525 = sum of:
+    1.0761657 = weight(RecipeIngredientParts:flour in 6555) [ClassicSimilarity], result of:
+      1.0761657 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.92601156 = weight(RecipeIngredientParts:sugar in 6555) [ClassicSimilarity], result of:
+      0.92601156 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.987662 = weight(RecipeIngredientParts:butter in 6555) [ClassicSimilarity], result of:
+      0.987662 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    1.0926853 = weight(RecipeIngredientParts:egg in 6555) [ClassicSimilarity], result of:
+      1.0926853 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+
+Anise Cookies: 600, None
+['butter', 'sugar', 'egg', 'salt', 'flour']
+6.6480236 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 6609) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  4.082525 = sum of:
+    1.0761657 = weight(RecipeIngredientParts:flour in 6609) [ClassicSimilarity], result of:
+      1.0761657 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.92601156 = weight(RecipeIngredientParts:sugar in 6609) [ClassicSimilarity], result of:
+      0.92601156 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.987662 = weight(RecipeIngredientParts:butter in 6609) [ClassicSimilarity], result of:
+      0.987662 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    1.0926853 = weight(RecipeIngredientParts:egg in 6609) [ClassicSimilarity], result of:
+      1.0926853 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+
+Cookie Cobbler: 2100, None
+['butter', 'sugar', 'eggs', 'vanilla', 'flour']
+6.6480236 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 151763) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  4.082525 = sum of:
+    1.0761657 = weight(RecipeIngredientParts:flour in 151763) [ClassicSimilarity], result of:
+      1.0761657 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.92601156 = weight(RecipeIngredientParts:sugar in 151763) [ClassicSimilarity], result of:
+      0.92601156 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.987662 = weight(RecipeIngredientParts:butter in 151763) [ClassicSimilarity], result of:
+      0.987662 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    1.0926853 = weight(RecipeIngredientParts:egg in 151763) [ClassicSimilarity], result of:
+      1.0926853 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+
+Rooster Cookies (Sugar Cookies): 600, None
+['butter', 'sugar', 'egg', 'salt', 'flour']
+6.6480236 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 169105) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=2.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.4142135 = tf(freq=2.0), with freq of:
+          2.0 = freq, occurrences of term within document
+        0.5 = fieldNorm
+  4.082525 = sum of:
+    1.0761657 = weight(RecipeIngredientParts:flour in 169105) [ClassicSimilarity], result of:
+      1.0761657 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.92601156 = weight(RecipeIngredientParts:sugar in 169105) [ClassicSimilarity], result of:
+      0.92601156 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.987662 = weight(RecipeIngredientParts:butter in 169105) [ClassicSimilarity], result of:
+      0.987662 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    1.0926853 = weight(RecipeIngredientParts:egg in 169105) [ClassicSimilarity], result of:
+      1.0926853 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+
+Lavender Cookies: 900, None
+['butter', 'granulated sugar', 'egg', 'flour']
+6.6480236 = sum of:
+  2.5654986 = sum of:
+    2.5654986 = weight(Name:cooki in 361564) [ClassicSimilarity], result of:
+      2.5654986 = score(freq=1.0), product of:
+        0.8 = boost
+        4.535204 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          23151 = docFreq, number of documents containing term
+          794159 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.70710677 = fieldNorm
+  4.082525 = sum of:
+    1.0761657 = weight(RecipeIngredientParts:flour in 361564) [ClassicSimilarity], result of:
+      1.0761657 = score(freq=1.0), product of:
+        2.4063797 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          193793 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.92601156 = weight(RecipeIngredientParts:sugar in 361564) [ClassicSimilarity], result of:
+      0.92601156 = score(freq=1.0), product of:
+        2.0706248 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          271116 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    0.987662 = weight(RecipeIngredientParts:butter in 361564) [ClassicSimilarity], result of:
+      0.987662 = score(freq=1.0), product of:
+        2.2084794 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          236203 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+    1.0926853 = weight(RecipeIngredientParts:egg in 361564) [ClassicSimilarity], result of:
+      1.0926853 = score(freq=1.0), product of:
+        2.4433188 = idf, computed as log((docCount+1)/(docFreq+1)) + 1 from:
+          186765 = docFreq, number of documents containing term
+          790902 = docCount, total number of documents with field
+        1.0 = tf(freq=1.0), with freq of:
+          1.0 = freq, occurrences of term within document
+        0.4472136 = fieldNorm
+

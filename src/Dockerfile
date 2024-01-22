@@ -1,4 +1,4 @@
-FROM coady/pylucene
+FROM coady/pylucene:9.7.0
 
 WORKDIR /usr/src/app
 
